@@ -1,0 +1,87 @@
+grammar robot.DSL with org.eclipse.xtext.common.Terminals
+
+generate dSL "http://www.DSL.robot"
+
+RobotBehavior: behaviorlist += Behaviors+
+;
+
+Behaviors:
+	"Behavior" name=ID
+	"IF" sensorExpression = Expression 
+	"THEN"  actionlist += Actions+ 
+	"END"
+;
+
+Expression: Expression1;
+
+Actions:
+	LeftMovementAction | RightMovementAction | RotateMovementAction;
+	
+LeftMovementAction:
+	"leftMotor" leftmove = MovementAction;
+	
+RightMovementAction:
+	"rightMotor" rightmove = MovementAction;
+
+RotateMovementAction:
+	"rotate" rotateleft = INT leftdir=RotateEnum rotateright = INT rightdir=RotateEnum
+;
+
+enum RotateEnum:
+	FORWARD = 'forward' |
+	BACKWARD = 'backward'
+;
+
+MovementAction:
+	actionenum = ActionEnum
+;
+
+enum ActionEnum:
+	FORWARD = 'forward' |
+	BACKWARD = 'backward' |
+	STOP = 'stop'
+;
+
+Expression1 returns Expression:
+	Expression2 
+	({ANDexpression.left = current} "AND" right = Expression2)*
+;
+
+Expression2 returns Expression:
+	Expression3 ({ORexpression.left = current} "OR" right = Expression3)*
+;
+
+Expression3 returns Expression:
+	ExpressionBracket | TouchLiteral | ColorLiteral | DistanceLiteral
+;
+
+ExpressionBracket:
+	'('exp = Expression')'
+;
+
+TouchLiteral:
+	"touch:" touch = TouchEnum
+;
+
+ColorLiteral:
+	"color:"  color = ColorEnum
+;
+
+DistanceLiteral:
+	"sonar:" distance=INT
+;
+
+enum TouchEnum:
+	LEFT = 'touchLeft' | RIGHT = 'touchRight'
+;
+
+enum ColorEnum:
+	NONE = 'NONE' |
+	BLACK = 'BLACK' |
+	BLUE = 'BLUE' |
+	GREEN = 'GREEN' |
+	YELLOW = 'YELLOW' |
+	RED = 'RED' |
+	WHITE = 'WHITE' |
+	BROWN = 'BROWN'
+;
