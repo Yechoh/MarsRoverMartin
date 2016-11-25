@@ -10,14 +10,14 @@ import org.eclipse.xtext.junit4.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import robot.dSL.Model
+import robot.dSL.RobotBehavior
 
 @RunWith(XtextRunner)
 @InjectWith(DSLInjectorProvider)
 class DSLParsingTest{
 
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<RobotBehavior> parseHelper
 
 	@Test 
 	def void loadModel() {

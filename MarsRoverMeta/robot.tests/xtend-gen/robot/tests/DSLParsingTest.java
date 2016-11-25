@@ -4,11 +4,15 @@
 package robot.tests;
 
 import com.google.inject.Inject;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.junit4.util.ParseHelper;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import robot.dSL.RobotBehavior;
 import robot.tests.DSLInjectorProvider;
 
 @RunWith(XtextRunner.class)
@@ -16,11 +20,18 @@ import robot.tests.DSLInjectorProvider;
 @SuppressWarnings("all")
 public class DSLParsingTest {
   @Inject
-  private /* ParseHelper<Model> */Object parseHelper;
+  private ParseHelper<RobotBehavior> parseHelper;
   
   @Test
   public void loadModel() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe field DSLParsingTest.parseHelper refers to the missing type Model");
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Hello Xtext!");
+      _builder.newLine();
+      final RobotBehavior result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 }

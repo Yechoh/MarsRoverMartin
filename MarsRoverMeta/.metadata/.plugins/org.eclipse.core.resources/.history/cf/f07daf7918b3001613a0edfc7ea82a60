@@ -1,0 +1,9 @@
+grammar robot.Rdsl with org.eclipse.xtext.common.Terminals
+
+generate rdsl "http://www.Rdsl.robot"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
