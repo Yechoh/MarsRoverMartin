@@ -362,11 +362,27 @@ ruleRotateMovementAction returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getRotateMovementActionAccess().getRotateKeyword_0());
 		}
+		otherlv_1='around'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getRotateMovementActionAccess().getAroundKeyword_1());
+		}
+		{
+			newCompositeNode(grammarAccess.getRotateMovementActionAccess().getRotatePointsParserRuleCall_2());
+		}
+		this_RotatePoints_2=ruleRotatePoints
+		{
+			$current = $this_RotatePoints_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		otherlv_3='for'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getRotateMovementActionAccess().getForKeyword_3());
+		}
 		(
 			(
-				lv_rotateleft_1_0=RULE_INT
+				lv_degrees_4_0=RULE_INT
 				{
-					newLeafNode(lv_rotateleft_1_0, grammarAccess.getRotateMovementActionAccess().getRotateleftINTTerminalRuleCall_1_0());
+					newLeafNode(lv_degrees_4_0, grammarAccess.getRotateMovementActionAccess().getDegreesINTTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
@@ -374,64 +390,199 @@ ruleRotateMovementAction returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"rotateleft",
-						lv_rotateleft_1_0,
+						"degrees",
+						lv_degrees_4_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
 		)
+		otherlv_5='degrees'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getRotateMovementActionAccess().getDegreesKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleRotatePoints
+entryRuleRotatePoints returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRotatePointsRule()); }
+	iv_ruleRotatePoints=ruleRotatePoints
+	{ $current=$iv_ruleRotatePoints.current; }
+	EOF;
+
+// Rule RotatePoints
+ruleRotatePoints returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getRotatePointsAccess().getLeftRotatePointParserRuleCall_0());
+		}
+		this_LeftRotatePoint_0=ruleLeftRotatePoint
+		{
+			$current = $this_LeftRotatePoint_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getRotatePointsAccess().getRightRotatePointParserRuleCall_1());
+		}
+		this_RightRotatePoint_1=ruleRightRotatePoint
+		{
+			$current = $this_RightRotatePoint_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getRotatePointsAccess().getMiddleRotatePointParserRuleCall_2());
+		}
+		this_MiddleRotatePoint_2=ruleMiddleRotatePoint
+		{
+			$current = $this_MiddleRotatePoint_2.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleLeftRotatePoint
+entryRuleLeftRotatePoint returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLeftRotatePointRule()); }
+	iv_ruleLeftRotatePoint=ruleLeftRotatePoint
+	{ $current=$iv_ruleLeftRotatePoint.current; }
+	EOF;
+
+// Rule LeftRotatePoint
+ruleLeftRotatePoint returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='left'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getLeftRotatePointAccess().getLeftKeyword_0());
+		}
+		otherlv_1='wheel'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getLeftRotatePointAccess().getWheelKeyword_1());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRotateMovementActionAccess().getLeftdirRotateEnumEnumRuleCall_2_0());
+					newCompositeNode(grammarAccess.getLeftRotatePointAccess().getLeftdirFBEnumEnumRuleCall_2_0());
 				}
-				lv_leftdir_2_0=ruleRotateEnum
+				lv_leftdir_2_0=ruleFBEnum
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRotateMovementActionRule());
+						$current = createModelElementForParent(grammarAccess.getLeftRotatePointRule());
 					}
 					set(
 						$current,
 						"leftdir",
 						lv_leftdir_2_0,
-						"robot.DSL.RotateEnum");
+						"robot.DSL.FBEnum");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleRightRotatePoint
+entryRuleRightRotatePoint returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRightRotatePointRule()); }
+	iv_ruleRightRotatePoint=ruleRightRotatePoint
+	{ $current=$iv_ruleRightRotatePoint.current; }
+	EOF;
+
+// Rule RightRotatePoint
+ruleRightRotatePoint returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='right'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getRightRotatePointAccess().getRightKeyword_0());
+		}
+		otherlv_1='wheel'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getRightRotatePointAccess().getWheelKeyword_1());
+		}
 		(
 			(
-				lv_rotateright_3_0=RULE_INT
 				{
-					newLeafNode(lv_rotateright_3_0, grammarAccess.getRotateMovementActionAccess().getRotaterightINTTerminalRuleCall_3_0());
+					newCompositeNode(grammarAccess.getRightRotatePointAccess().getRightdirFBEnumEnumRuleCall_2_0());
 				}
+				lv_rightdir_2_0=ruleFBEnum
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getRotateMovementActionRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"rotateright",
-						lv_rotateright_3_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getRotateMovementActionAccess().getRightdirRotateEnumEnumRuleCall_4_0());
-				}
-				lv_rightdir_4_0=ruleRotateEnum
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRotateMovementActionRule());
+						$current = createModelElementForParent(grammarAccess.getRightRotatePointRule());
 					}
 					set(
 						$current,
 						"rightdir",
-						lv_rightdir_4_0,
-						"robot.DSL.RotateEnum");
+						lv_rightdir_2_0,
+						"robot.DSL.FBEnum");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleMiddleRotatePoint
+entryRuleMiddleRotatePoint returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMiddleRotatePointRule()); }
+	iv_ruleMiddleRotatePoint=ruleMiddleRotatePoint
+	{ $current=$iv_ruleMiddleRotatePoint.current; }
+	EOF;
+
+// Rule MiddleRotatePoint
+ruleMiddleRotatePoint returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='middle'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getMiddleRotatePointAccess().getMiddleKeyword_0());
+		}
+		otherlv_1='to'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getMiddleRotatePointAccess().getToKeyword_1());
+		}
+		otherlv_2='the'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getMiddleRotatePointAccess().getTheKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMiddleRotatePointAccess().getMiddledirLREnumEnumRuleCall_3_0());
+				}
+				lv_middledir_3_0=ruleLREnum
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMiddleRotatePointRule());
+					}
+					set(
+						$current,
+						"middledir",
+						lv_middledir_3_0,
+						"robot.DSL.LREnum");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -644,6 +795,15 @@ ruleExpression3 returns [EObject current=null]
 			$current = $this_DistanceLiteral_3.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getExpression3Access().getEdgeLiteralParserRuleCall_4());
+		}
+		this_EdgeLiteral_4=ruleEdgeLiteral
+		{
+			$current = $this_EdgeLiteral_4.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -709,16 +869,12 @@ ruleTouchLiteral returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='touch:'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getTouchLiteralAccess().getTouchKeyword_0());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTouchLiteralAccess().getTouchTouchEnumEnumRuleCall_1_0());
+					newCompositeNode(grammarAccess.getTouchLiteralAccess().getTouchTouchEnumEnumRuleCall_0_0());
 				}
-				lv_touch_1_0=ruleTouchEnum
+				lv_touch_0_0=ruleTouchEnum
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTouchLiteralRule());
@@ -726,12 +882,16 @@ ruleTouchLiteral returns [EObject current=null]
 					set(
 						$current,
 						"touch",
-						lv_touch_1_0,
+						lv_touch_0_0,
 						"robot.DSL.TouchEnum");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_1='hits'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getTouchLiteralAccess().getHitsKeyword_1());
+		}
 	)
 ;
 
@@ -751,16 +911,24 @@ ruleColorLiteral returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='color:'
+		otherlv_0='colorFront'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getColorLiteralAccess().getColorKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getColorLiteralAccess().getColorFrontKeyword_0());
+		}
+		otherlv_1='sees'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getColorLiteralAccess().getSeesKeyword_1());
+		}
+		otherlv_2='color'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getColorLiteralAccess().getColorKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getColorLiteralAccess().getColorColorEnumEnumRuleCall_1_0());
+					newCompositeNode(grammarAccess.getColorLiteralAccess().getColorColorEnumEnumRuleCall_3_0());
 				}
-				lv_color_1_0=ruleColorEnum
+				lv_color_3_0=ruleColorEnum
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getColorLiteralRule());
@@ -768,7 +936,7 @@ ruleColorLiteral returns [EObject current=null]
 					set(
 						$current,
 						"color",
-						lv_color_1_0,
+						lv_color_3_0,
 						"robot.DSL.ColorEnum");
 					afterParserOrEnumRuleCall();
 				}
@@ -793,15 +961,19 @@ ruleDistanceLiteral returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='sonar:'
+		otherlv_0='object'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getDistanceLiteralAccess().getSonarKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getDistanceLiteralAccess().getObjectKeyword_0());
+		}
+		otherlv_1='at'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDistanceLiteralAccess().getAtKeyword_1());
 		}
 		(
 			(
-				lv_distance_1_0=RULE_INT
+				lv_distance_2_0=RULE_INT
 				{
-					newLeafNode(lv_distance_1_0, grammarAccess.getDistanceLiteralAccess().getDistanceINTTerminalRuleCall_1_0());
+					newLeafNode(lv_distance_2_0, grammarAccess.getDistanceLiteralAccess().getDistanceINTTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -810,16 +982,93 @@ ruleDistanceLiteral returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"distance",
-						lv_distance_1_0,
+						lv_distance_2_0,
 						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		otherlv_3='cm'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDistanceLiteralAccess().getCmKeyword_3());
+		}
+	)
+;
+
+// Entry rule entryRuleEdgeLiteral
+entryRuleEdgeLiteral returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEdgeLiteralRule()); }
+	iv_ruleEdgeLiteral=ruleEdgeLiteral
+	{ $current=$iv_ruleEdgeLiteral.current; }
+	EOF;
+
+// Rule EdgeLiteral
+ruleEdgeLiteral returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='edge'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEdgeLiteralAccess().getEdgeKeyword_0());
+		}
+		otherlv_1='at'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEdgeLiteralAccess().getAtKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEdgeLiteralAccess().getEdgeEdgeEnumEnumRuleCall_2_0());
+				}
+				lv_edge_2_0=ruleEdgeEnum
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEdgeLiteralRule());
+					}
+					set(
+						$current,
+						"edge",
+						lv_edge_2_0,
+						"robot.DSL.EdgeEnum");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 	)
 ;
 
-// Rule RotateEnum
-ruleRotateEnum returns [Enumerator current=null]
+// Rule LREnum
+ruleLREnum returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='left'
+			{
+				$current = grammarAccess.getLREnumAccess().getLEFTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getLREnumAccess().getLEFTEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='right'
+			{
+				$current = grammarAccess.getLREnumAccess().getRIGHTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getLREnumAccess().getRIGHTEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule FBEnum
+ruleFBEnum returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -830,16 +1079,16 @@ ruleRotateEnum returns [Enumerator current=null]
 		(
 			enumLiteral_0='forward'
 			{
-				$current = grammarAccess.getRotateEnumAccess().getFORWARDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getRotateEnumAccess().getFORWARDEnumLiteralDeclaration_0());
+				$current = grammarAccess.getFBEnumAccess().getFORWARDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getFBEnumAccess().getFORWARDEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
 			enumLiteral_1='backward'
 			{
-				$current = grammarAccess.getRotateEnumAccess().getBACKWARDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getRotateEnumAccess().getBACKWARDEnumLiteralDeclaration_1());
+				$current = grammarAccess.getFBEnumAccess().getBACKWARDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getFBEnumAccess().getBACKWARDEnumLiteralDeclaration_1());
 			}
 		)
 	)
@@ -880,6 +1129,41 @@ ruleActionEnum returns [Enumerator current=null]
 	)
 ;
 
+// Rule EdgeEnum
+ruleEdgeEnum returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='frontLeft'
+			{
+				$current = grammarAccess.getEdgeEnumAccess().getFRONTLEFTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getEdgeEnumAccess().getFRONTLEFTEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='frontRight'
+			{
+				$current = grammarAccess.getEdgeEnumAccess().getFRONTRIGHTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getEdgeEnumAccess().getFRONTRIGHTEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='back'
+			{
+				$current = grammarAccess.getEdgeEnumAccess().getBACKEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getEdgeEnumAccess().getBACKEnumLiteralDeclaration_2());
+			}
+		)
+	)
+;
+
 // Rule TouchEnum
 ruleTouchEnum returns [Enumerator current=null]
 @init {
@@ -890,7 +1174,7 @@ ruleTouchEnum returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='touchLeft'
+			enumLiteral_0='touchFrontLeft'
 			{
 				$current = grammarAccess.getTouchEnumAccess().getLEFTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_0, grammarAccess.getTouchEnumAccess().getLEFTEnumLiteralDeclaration_0());
@@ -898,7 +1182,7 @@ ruleTouchEnum returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_1='touchRight'
+			enumLiteral_1='touchFrontRight'
 			{
 				$current = grammarAccess.getTouchEnumAccess().getRIGHTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getTouchEnumAccess().getRIGHTEnumLiteralDeclaration_1());

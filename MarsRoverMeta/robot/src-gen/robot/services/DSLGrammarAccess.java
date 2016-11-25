@@ -179,48 +179,148 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.RotateMovementAction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRotateKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cRotateleftAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRotateleftINTTerminalRuleCall_1_0 = (RuleCall)cRotateleftAssignment_1.eContents().get(0);
-		private final Assignment cLeftdirAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cLeftdirRotateEnumEnumRuleCall_2_0 = (RuleCall)cLeftdirAssignment_2.eContents().get(0);
-		private final Assignment cRotaterightAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRotaterightINTTerminalRuleCall_3_0 = (RuleCall)cRotaterightAssignment_3.eContents().get(0);
-		private final Assignment cRightdirAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cRightdirRotateEnumEnumRuleCall_4_0 = (RuleCall)cRightdirAssignment_4.eContents().get(0);
+		private final Keyword cAroundKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cRotatePointsParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Keyword cForKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cDegreesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDegreesINTTerminalRuleCall_4_0 = (RuleCall)cDegreesAssignment_4.eContents().get(0);
+		private final Keyword cDegreesKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//RotateMovementAction:
-		//	"rotate" rotateleft=INT leftdir=RotateEnum rotateright=INT rightdir=RotateEnum;
+		//	"rotate" "around" RotatePoints 'for' degrees=INT 'degrees';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"rotate" rotateleft=INT leftdir=RotateEnum rotateright=INT rightdir=RotateEnum
+		//"rotate" "around" RotatePoints 'for' degrees=INT 'degrees'
 		public Group getGroup() { return cGroup; }
 		
 		//"rotate"
 		public Keyword getRotateKeyword_0() { return cRotateKeyword_0; }
 		
-		//rotateleft=INT
-		public Assignment getRotateleftAssignment_1() { return cRotateleftAssignment_1; }
+		//"around"
+		public Keyword getAroundKeyword_1() { return cAroundKeyword_1; }
+		
+		//RotatePoints
+		public RuleCall getRotatePointsParserRuleCall_2() { return cRotatePointsParserRuleCall_2; }
+		
+		//'for'
+		public Keyword getForKeyword_3() { return cForKeyword_3; }
+		
+		//degrees=INT
+		public Assignment getDegreesAssignment_4() { return cDegreesAssignment_4; }
 		
 		//INT
-		public RuleCall getRotateleftINTTerminalRuleCall_1_0() { return cRotateleftINTTerminalRuleCall_1_0; }
+		public RuleCall getDegreesINTTerminalRuleCall_4_0() { return cDegreesINTTerminalRuleCall_4_0; }
 		
-		//leftdir=RotateEnum
+		//'degrees'
+		public Keyword getDegreesKeyword_5() { return cDegreesKeyword_5; }
+	}
+	public class RotatePointsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.RotatePoints");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cLeftRotatePointParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cRightRotatePointParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cMiddleRotatePointParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//RotatePoints:
+		//	LeftRotatePoint | RightRotatePoint | MiddleRotatePoint;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//LeftRotatePoint | RightRotatePoint | MiddleRotatePoint
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//LeftRotatePoint
+		public RuleCall getLeftRotatePointParserRuleCall_0() { return cLeftRotatePointParserRuleCall_0; }
+		
+		//RightRotatePoint
+		public RuleCall getRightRotatePointParserRuleCall_1() { return cRightRotatePointParserRuleCall_1; }
+		
+		//MiddleRotatePoint
+		public RuleCall getMiddleRotatePointParserRuleCall_2() { return cMiddleRotatePointParserRuleCall_2; }
+	}
+	public class LeftRotatePointElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.LeftRotatePoint");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cWheelKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cLeftdirAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLeftdirFBEnumEnumRuleCall_2_0 = (RuleCall)cLeftdirAssignment_2.eContents().get(0);
+		
+		//LeftRotatePoint:
+		//	"left" "wheel" leftdir=FBEnum;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"left" "wheel" leftdir=FBEnum
+		public Group getGroup() { return cGroup; }
+		
+		//"left"
+		public Keyword getLeftKeyword_0() { return cLeftKeyword_0; }
+		
+		//"wheel"
+		public Keyword getWheelKeyword_1() { return cWheelKeyword_1; }
+		
+		//leftdir=FBEnum
 		public Assignment getLeftdirAssignment_2() { return cLeftdirAssignment_2; }
 		
-		//RotateEnum
-		public RuleCall getLeftdirRotateEnumEnumRuleCall_2_0() { return cLeftdirRotateEnumEnumRuleCall_2_0; }
+		//FBEnum
+		public RuleCall getLeftdirFBEnumEnumRuleCall_2_0() { return cLeftdirFBEnumEnumRuleCall_2_0; }
+	}
+	public class RightRotatePointElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.RightRotatePoint");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRightKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cWheelKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRightdirAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRightdirFBEnumEnumRuleCall_2_0 = (RuleCall)cRightdirAssignment_2.eContents().get(0);
 		
-		//rotateright=INT
-		public Assignment getRotaterightAssignment_3() { return cRotaterightAssignment_3; }
+		//RightRotatePoint:
+		//	"right" "wheel" rightdir=FBEnum;
+		@Override public ParserRule getRule() { return rule; }
 		
-		//INT
-		public RuleCall getRotaterightINTTerminalRuleCall_3_0() { return cRotaterightINTTerminalRuleCall_3_0; }
+		//"right" "wheel" rightdir=FBEnum
+		public Group getGroup() { return cGroup; }
 		
-		//rightdir=RotateEnum
-		public Assignment getRightdirAssignment_4() { return cRightdirAssignment_4; }
+		//"right"
+		public Keyword getRightKeyword_0() { return cRightKeyword_0; }
 		
-		//RotateEnum
-		public RuleCall getRightdirRotateEnumEnumRuleCall_4_0() { return cRightdirRotateEnumEnumRuleCall_4_0; }
+		//"wheel"
+		public Keyword getWheelKeyword_1() { return cWheelKeyword_1; }
+		
+		//rightdir=FBEnum
+		public Assignment getRightdirAssignment_2() { return cRightdirAssignment_2; }
+		
+		//FBEnum
+		public RuleCall getRightdirFBEnumEnumRuleCall_2_0() { return cRightdirFBEnumEnumRuleCall_2_0; }
+	}
+	public class MiddleRotatePointElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.MiddleRotatePoint");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMiddleKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cTheKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cMiddledirAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMiddledirLREnumEnumRuleCall_3_0 = (RuleCall)cMiddledirAssignment_3.eContents().get(0);
+		
+		//MiddleRotatePoint:
+		//	'middle' 'to' 'the' middledir=LREnum;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'middle' 'to' 'the' middledir=LREnum
+		public Group getGroup() { return cGroup; }
+		
+		//'middle'
+		public Keyword getMiddleKeyword_0() { return cMiddleKeyword_0; }
+		
+		//'to'
+		public Keyword getToKeyword_1() { return cToKeyword_1; }
+		
+		//'the'
+		public Keyword getTheKeyword_2() { return cTheKeyword_2; }
+		
+		//middledir=LREnum
+		public Assignment getMiddledirAssignment_3() { return cMiddledirAssignment_3; }
+		
+		//LREnum
+		public RuleCall getMiddledirLREnumEnumRuleCall_3_0() { return cMiddledirLREnumEnumRuleCall_3_0; }
 	}
 	public class MovementActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.MovementAction");
@@ -314,12 +414,13 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTouchLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cColorLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cDistanceLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cEdgeLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Expression3 Expression:
-		//	ExpressionBracket | TouchLiteral | ColorLiteral | DistanceLiteral
+		//	ExpressionBracket | TouchLiteral | ColorLiteral | DistanceLiteral | EdgeLiteral
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ExpressionBracket | TouchLiteral | ColorLiteral | DistanceLiteral
+		//ExpressionBracket | TouchLiteral | ColorLiteral | DistanceLiteral | EdgeLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ExpressionBracket
@@ -333,6 +434,9 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DistanceLiteral
 		public RuleCall getDistanceLiteralParserRuleCall_3() { return cDistanceLiteralParserRuleCall_3; }
+		
+		//EdgeLiteral
+		public RuleCall getEdgeLiteralParserRuleCall_4() { return cEdgeLiteralParserRuleCall_4; }
 	}
 	public class ExpressionBracketElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.ExpressionBracket");
@@ -364,82 +468,153 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class TouchLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.TouchLiteral");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTouchKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTouchAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTouchTouchEnumEnumRuleCall_1_0 = (RuleCall)cTouchAssignment_1.eContents().get(0);
+		private final Assignment cTouchAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTouchTouchEnumEnumRuleCall_0_0 = (RuleCall)cTouchAssignment_0.eContents().get(0);
+		private final Keyword cHitsKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//TouchLiteral:
-		//	"touch:" touch=TouchEnum;
+		//	touch=TouchEnum 'hits';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"touch:" touch=TouchEnum
+		//touch=TouchEnum 'hits'
 		public Group getGroup() { return cGroup; }
 		
-		//"touch:"
-		public Keyword getTouchKeyword_0() { return cTouchKeyword_0; }
-		
 		//touch=TouchEnum
-		public Assignment getTouchAssignment_1() { return cTouchAssignment_1; }
+		public Assignment getTouchAssignment_0() { return cTouchAssignment_0; }
 		
 		//TouchEnum
-		public RuleCall getTouchTouchEnumEnumRuleCall_1_0() { return cTouchTouchEnumEnumRuleCall_1_0; }
+		public RuleCall getTouchTouchEnumEnumRuleCall_0_0() { return cTouchTouchEnumEnumRuleCall_0_0; }
+		
+		//'hits'
+		public Keyword getHitsKeyword_1() { return cHitsKeyword_1; }
 	}
 	public class ColorLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.ColorLiteral");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cColorKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cColorAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cColorColorEnumEnumRuleCall_1_0 = (RuleCall)cColorAssignment_1.eContents().get(0);
+		private final Keyword cColorFrontKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cSeesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cColorKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cColorAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cColorColorEnumEnumRuleCall_3_0 = (RuleCall)cColorAssignment_3.eContents().get(0);
 		
 		//ColorLiteral:
-		//	"color:" color=ColorEnum;
+		//	"colorFront" "sees" "color" color=ColorEnum;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"color:" color=ColorEnum
+		//"colorFront" "sees" "color" color=ColorEnum
 		public Group getGroup() { return cGroup; }
 		
-		//"color:"
-		public Keyword getColorKeyword_0() { return cColorKeyword_0; }
+		//"colorFront"
+		public Keyword getColorFrontKeyword_0() { return cColorFrontKeyword_0; }
+		
+		//"sees"
+		public Keyword getSeesKeyword_1() { return cSeesKeyword_1; }
+		
+		//"color"
+		public Keyword getColorKeyword_2() { return cColorKeyword_2; }
 		
 		//color=ColorEnum
-		public Assignment getColorAssignment_1() { return cColorAssignment_1; }
+		public Assignment getColorAssignment_3() { return cColorAssignment_3; }
 		
 		//ColorEnum
-		public RuleCall getColorColorEnumEnumRuleCall_1_0() { return cColorColorEnumEnumRuleCall_1_0; }
+		public RuleCall getColorColorEnumEnumRuleCall_3_0() { return cColorColorEnumEnumRuleCall_3_0; }
 	}
 	public class DistanceLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.DistanceLiteral");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSonarKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cDistanceAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDistanceINTTerminalRuleCall_1_0 = (RuleCall)cDistanceAssignment_1.eContents().get(0);
+		private final Keyword cObjectKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cAtKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDistanceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDistanceINTTerminalRuleCall_2_0 = (RuleCall)cDistanceAssignment_2.eContents().get(0);
+		private final Keyword cCmKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//DistanceLiteral:
-		//	"sonar:" distance=INT;
+		//	"object" "at" distance=INT "cm";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"sonar:" distance=INT
+		//"object" "at" distance=INT "cm"
 		public Group getGroup() { return cGroup; }
 		
-		//"sonar:"
-		public Keyword getSonarKeyword_0() { return cSonarKeyword_0; }
+		//"object"
+		public Keyword getObjectKeyword_0() { return cObjectKeyword_0; }
+		
+		//"at"
+		public Keyword getAtKeyword_1() { return cAtKeyword_1; }
 		
 		//distance=INT
-		public Assignment getDistanceAssignment_1() { return cDistanceAssignment_1; }
+		public Assignment getDistanceAssignment_2() { return cDistanceAssignment_2; }
 		
 		//INT
-		public RuleCall getDistanceINTTerminalRuleCall_1_0() { return cDistanceINTTerminalRuleCall_1_0; }
+		public RuleCall getDistanceINTTerminalRuleCall_2_0() { return cDistanceINTTerminalRuleCall_2_0; }
+		
+		//"cm"
+		public Keyword getCmKeyword_3() { return cCmKeyword_3; }
+	}
+	public class EdgeLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.EdgeLiteral");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cEdgeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cAtKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cEdgeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cEdgeEdgeEnumEnumRuleCall_2_0 = (RuleCall)cEdgeAssignment_2.eContents().get(0);
+		
+		//EdgeLiteral:
+		//	"edge" "at" edge=EdgeEnum;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"edge" "at" edge=EdgeEnum
+		public Group getGroup() { return cGroup; }
+		
+		//"edge"
+		public Keyword getEdgeKeyword_0() { return cEdgeKeyword_0; }
+		
+		//"at"
+		public Keyword getAtKeyword_1() { return cAtKeyword_1; }
+		
+		//edge=EdgeEnum
+		public Assignment getEdgeAssignment_2() { return cEdgeAssignment_2; }
+		
+		//EdgeEnum
+		public RuleCall getEdgeEdgeEnumEnumRuleCall_2_0() { return cEdgeEdgeEnumEnumRuleCall_2_0; }
 	}
 	
-	public class RotateEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.RotateEnum");
+	public class LREnumElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.LREnum");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cLEFTEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cLEFTLeftKeyword_0_0 = (Keyword)cLEFTEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cRIGHTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cRIGHTRightKeyword_1_0 = (Keyword)cRIGHTEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum LREnum:
+		//	LEFT='left' |
+		//	RIGHT='right';
+		public EnumRule getRule() { return rule; }
+		
+		//LEFT='left' | RIGHT='right'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//LEFT='left'
+		public EnumLiteralDeclaration getLEFTEnumLiteralDeclaration_0() { return cLEFTEnumLiteralDeclaration_0; }
+		
+		//'left'
+		public Keyword getLEFTLeftKeyword_0_0() { return cLEFTLeftKeyword_0_0; }
+		
+		//RIGHT='right'
+		public EnumLiteralDeclaration getRIGHTEnumLiteralDeclaration_1() { return cRIGHTEnumLiteralDeclaration_1; }
+		
+		//'right'
+		public Keyword getRIGHTRightKeyword_1_0() { return cRIGHTRightKeyword_1_0; }
+	}
+	public class FBEnumElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.FBEnum");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cFORWARDEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cFORWARDForwardKeyword_0_0 = (Keyword)cFORWARDEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cBACKWARDEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cBACKWARDBackwardKeyword_1_0 = (Keyword)cBACKWARDEnumLiteralDeclaration_1.eContents().get(0);
 		
-		//enum RotateEnum:
+		//enum FBEnum:
 		//	FORWARD='forward' |
 		//	BACKWARD='backward';
 		public EnumRule getRule() { return rule; }
@@ -496,32 +671,69 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 		//'stop'
 		public Keyword getSTOPStopKeyword_2_0() { return cSTOPStopKeyword_2_0; }
 	}
+	public class EdgeEnumElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.EdgeEnum");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cFRONTLEFTEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cFRONTLEFTFrontLeftKeyword_0_0 = (Keyword)cFRONTLEFTEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cFRONTRIGHTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cFRONTRIGHTFrontRightKeyword_1_0 = (Keyword)cFRONTRIGHTEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cBACKEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cBACKBackKeyword_2_0 = (Keyword)cBACKEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum EdgeEnum:
+		//	FRONTLEFT="frontLeft" |
+		//	FRONTRIGHT="frontRight" |
+		//	BACK="back";
+		public EnumRule getRule() { return rule; }
+		
+		//FRONTLEFT="frontLeft" | FRONTRIGHT="frontRight" | BACK="back"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//FRONTLEFT="frontLeft"
+		public EnumLiteralDeclaration getFRONTLEFTEnumLiteralDeclaration_0() { return cFRONTLEFTEnumLiteralDeclaration_0; }
+		
+		//"frontLeft"
+		public Keyword getFRONTLEFTFrontLeftKeyword_0_0() { return cFRONTLEFTFrontLeftKeyword_0_0; }
+		
+		//FRONTRIGHT="frontRight"
+		public EnumLiteralDeclaration getFRONTRIGHTEnumLiteralDeclaration_1() { return cFRONTRIGHTEnumLiteralDeclaration_1; }
+		
+		//"frontRight"
+		public Keyword getFRONTRIGHTFrontRightKeyword_1_0() { return cFRONTRIGHTFrontRightKeyword_1_0; }
+		
+		//BACK="back"
+		public EnumLiteralDeclaration getBACKEnumLiteralDeclaration_2() { return cBACKEnumLiteralDeclaration_2; }
+		
+		//"back"
+		public Keyword getBACKBackKeyword_2_0() { return cBACKBackKeyword_2_0; }
+	}
 	public class TouchEnumElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.TouchEnum");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cLEFTEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cLEFTTouchLeftKeyword_0_0 = (Keyword)cLEFTEnumLiteralDeclaration_0.eContents().get(0);
+		private final Keyword cLEFTTouchFrontLeftKeyword_0_0 = (Keyword)cLEFTEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cRIGHTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cRIGHTTouchRightKeyword_1_0 = (Keyword)cRIGHTEnumLiteralDeclaration_1.eContents().get(0);
+		private final Keyword cRIGHTTouchFrontRightKeyword_1_0 = (Keyword)cRIGHTEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum TouchEnum:
-		//	LEFT='touchLeft' | RIGHT='touchRight';
+		//	LEFT='touchFrontLeft' | RIGHT='touchFrontRight';
 		public EnumRule getRule() { return rule; }
 		
-		//LEFT='touchLeft' | RIGHT='touchRight'
+		//LEFT='touchFrontLeft' | RIGHT='touchFrontRight'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//LEFT='touchLeft'
+		//LEFT='touchFrontLeft'
 		public EnumLiteralDeclaration getLEFTEnumLiteralDeclaration_0() { return cLEFTEnumLiteralDeclaration_0; }
 		
-		//'touchLeft'
-		public Keyword getLEFTTouchLeftKeyword_0_0() { return cLEFTTouchLeftKeyword_0_0; }
+		//'touchFrontLeft'
+		public Keyword getLEFTTouchFrontLeftKeyword_0_0() { return cLEFTTouchFrontLeftKeyword_0_0; }
 		
-		//RIGHT='touchRight'
+		//RIGHT='touchFrontRight'
 		public EnumLiteralDeclaration getRIGHTEnumLiteralDeclaration_1() { return cRIGHTEnumLiteralDeclaration_1; }
 		
-		//'touchRight'
-		public Keyword getRIGHTTouchRightKeyword_1_0() { return cRIGHTTouchRightKeyword_1_0; }
+		//'touchFrontRight'
+		public Keyword getRIGHTTouchFrontRightKeyword_1_0() { return cRIGHTTouchFrontRightKeyword_1_0; }
 	}
 	public class ColorEnumElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "robot.DSL.ColorEnum");
@@ -613,7 +825,12 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 	private final LeftMovementActionElements pLeftMovementAction;
 	private final RightMovementActionElements pRightMovementAction;
 	private final RotateMovementActionElements pRotateMovementAction;
-	private final RotateEnumElements eRotateEnum;
+	private final RotatePointsElements pRotatePoints;
+	private final LeftRotatePointElements pLeftRotatePoint;
+	private final RightRotatePointElements pRightRotatePoint;
+	private final MiddleRotatePointElements pMiddleRotatePoint;
+	private final LREnumElements eLREnum;
+	private final FBEnumElements eFBEnum;
 	private final MovementActionElements pMovementAction;
 	private final ActionEnumElements eActionEnum;
 	private final Expression1Elements pExpression1;
@@ -623,6 +840,8 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 	private final TouchLiteralElements pTouchLiteral;
 	private final ColorLiteralElements pColorLiteral;
 	private final DistanceLiteralElements pDistanceLiteral;
+	private final EdgeLiteralElements pEdgeLiteral;
+	private final EdgeEnumElements eEdgeEnum;
 	private final TouchEnumElements eTouchEnum;
 	private final ColorEnumElements eColorEnum;
 	
@@ -642,7 +861,12 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pLeftMovementAction = new LeftMovementActionElements();
 		this.pRightMovementAction = new RightMovementActionElements();
 		this.pRotateMovementAction = new RotateMovementActionElements();
-		this.eRotateEnum = new RotateEnumElements();
+		this.pRotatePoints = new RotatePointsElements();
+		this.pLeftRotatePoint = new LeftRotatePointElements();
+		this.pRightRotatePoint = new RightRotatePointElements();
+		this.pMiddleRotatePoint = new MiddleRotatePointElements();
+		this.eLREnum = new LREnumElements();
+		this.eFBEnum = new FBEnumElements();
 		this.pMovementAction = new MovementActionElements();
 		this.eActionEnum = new ActionEnumElements();
 		this.pExpression1 = new Expression1Elements();
@@ -652,6 +876,8 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pTouchLiteral = new TouchLiteralElements();
 		this.pColorLiteral = new ColorLiteralElements();
 		this.pDistanceLiteral = new DistanceLiteralElements();
+		this.pEdgeLiteral = new EdgeLiteralElements();
+		this.eEdgeEnum = new EdgeEnumElements();
 		this.eTouchEnum = new TouchEnumElements();
 		this.eColorEnum = new ColorEnumElements();
 	}
@@ -747,7 +973,7 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RotateMovementAction:
-	//	"rotate" rotateleft=INT leftdir=RotateEnum rotateright=INT rightdir=RotateEnum;
+	//	"rotate" "around" RotatePoints 'for' degrees=INT 'degrees';
 	public RotateMovementActionElements getRotateMovementActionAccess() {
 		return pRotateMovementAction;
 	}
@@ -756,15 +982,66 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getRotateMovementActionAccess().getRule();
 	}
 	
-	//enum RotateEnum:
-	//	FORWARD='forward' |
-	//	BACKWARD='backward';
-	public RotateEnumElements getRotateEnumAccess() {
-		return eRotateEnum;
+	//RotatePoints:
+	//	LeftRotatePoint | RightRotatePoint | MiddleRotatePoint;
+	public RotatePointsElements getRotatePointsAccess() {
+		return pRotatePoints;
 	}
 	
-	public EnumRule getRotateEnumRule() {
-		return getRotateEnumAccess().getRule();
+	public ParserRule getRotatePointsRule() {
+		return getRotatePointsAccess().getRule();
+	}
+	
+	//LeftRotatePoint:
+	//	"left" "wheel" leftdir=FBEnum;
+	public LeftRotatePointElements getLeftRotatePointAccess() {
+		return pLeftRotatePoint;
+	}
+	
+	public ParserRule getLeftRotatePointRule() {
+		return getLeftRotatePointAccess().getRule();
+	}
+	
+	//RightRotatePoint:
+	//	"right" "wheel" rightdir=FBEnum;
+	public RightRotatePointElements getRightRotatePointAccess() {
+		return pRightRotatePoint;
+	}
+	
+	public ParserRule getRightRotatePointRule() {
+		return getRightRotatePointAccess().getRule();
+	}
+	
+	//MiddleRotatePoint:
+	//	'middle' 'to' 'the' middledir=LREnum;
+	public MiddleRotatePointElements getMiddleRotatePointAccess() {
+		return pMiddleRotatePoint;
+	}
+	
+	public ParserRule getMiddleRotatePointRule() {
+		return getMiddleRotatePointAccess().getRule();
+	}
+	
+	//enum LREnum:
+	//	LEFT='left' |
+	//	RIGHT='right';
+	public LREnumElements getLREnumAccess() {
+		return eLREnum;
+	}
+	
+	public EnumRule getLREnumRule() {
+		return getLREnumAccess().getRule();
+	}
+	
+	//enum FBEnum:
+	//	FORWARD='forward' |
+	//	BACKWARD='backward';
+	public FBEnumElements getFBEnumAccess() {
+		return eFBEnum;
+	}
+	
+	public EnumRule getFBEnumRule() {
+		return getFBEnumAccess().getRule();
 	}
 	
 	//MovementAction:
@@ -810,7 +1087,7 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Expression3 Expression:
-	//	ExpressionBracket | TouchLiteral | ColorLiteral | DistanceLiteral
+	//	ExpressionBracket | TouchLiteral | ColorLiteral | DistanceLiteral | EdgeLiteral
 	public Expression3Elements getExpression3Access() {
 		return pExpression3;
 	}
@@ -830,7 +1107,7 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TouchLiteral:
-	//	"touch:" touch=TouchEnum;
+	//	touch=TouchEnum 'hits';
 	public TouchLiteralElements getTouchLiteralAccess() {
 		return pTouchLiteral;
 	}
@@ -840,7 +1117,7 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ColorLiteral:
-	//	"color:" color=ColorEnum;
+	//	"colorFront" "sees" "color" color=ColorEnum;
 	public ColorLiteralElements getColorLiteralAccess() {
 		return pColorLiteral;
 	}
@@ -850,7 +1127,7 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DistanceLiteral:
-	//	"sonar:" distance=INT;
+	//	"object" "at" distance=INT "cm";
 	public DistanceLiteralElements getDistanceLiteralAccess() {
 		return pDistanceLiteral;
 	}
@@ -859,8 +1136,30 @@ public class DSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getDistanceLiteralAccess().getRule();
 	}
 	
+	//EdgeLiteral:
+	//	"edge" "at" edge=EdgeEnum;
+	public EdgeLiteralElements getEdgeLiteralAccess() {
+		return pEdgeLiteral;
+	}
+	
+	public ParserRule getEdgeLiteralRule() {
+		return getEdgeLiteralAccess().getRule();
+	}
+	
+	//enum EdgeEnum:
+	//	FRONTLEFT="frontLeft" |
+	//	FRONTRIGHT="frontRight" |
+	//	BACK="back";
+	public EdgeEnumElements getEdgeEnumAccess() {
+		return eEdgeEnum;
+	}
+	
+	public EnumRule getEdgeEnumRule() {
+		return getEdgeEnumAccess().getRule();
+	}
+	
 	//enum TouchEnum:
-	//	LEFT='touchLeft' | RIGHT='touchRight';
+	//	LEFT='touchFrontLeft' | RIGHT='touchFrontRight';
 	public TouchEnumElements getTouchEnumAccess() {
 		return eTouchEnum;
 	}

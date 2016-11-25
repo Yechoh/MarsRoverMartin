@@ -28,7 +28,7 @@ public enum TouchEnum implements Enumerator
    * @generated
    * @ordered
    */
-  LEFT(0, "LEFT", "touchLeft"),
+  LEFT(0, "LEFT", "touchFrontLeft"),
 
   /**
    * The '<em><b>RIGHT</b></em>' literal object.
@@ -38,7 +38,7 @@ public enum TouchEnum implements Enumerator
    * @generated
    * @ordered
    */
-  RIGHT(1, "RIGHT", "touchRight");
+  RIGHT(1, "RIGHT", "touchFrontRight");
 
   /**
    * The '<em><b>LEFT</b></em>' literal value.
@@ -49,7 +49,7 @@ public enum TouchEnum implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #LEFT
-   * @model literal="touchLeft"
+   * @model literal="touchFrontLeft"
    * @generated
    * @ordered
    */
@@ -64,7 +64,7 @@ public enum TouchEnum implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #RIGHT
-   * @model literal="touchRight"
+   * @model literal="touchFrontRight"
    * @generated
    * @ordered
    */

@@ -20,15 +20,22 @@ import robot.dSL.ColorLiteral;
 import robot.dSL.DSLFactory;
 import robot.dSL.DSLPackage;
 import robot.dSL.DistanceLiteral;
+import robot.dSL.EdgeEnum;
+import robot.dSL.EdgeLiteral;
 import robot.dSL.Expression;
 import robot.dSL.ExpressionBracket;
+import robot.dSL.FBEnum;
+import robot.dSL.LREnum;
 import robot.dSL.LeftMovementAction;
+import robot.dSL.LeftRotatePoint;
+import robot.dSL.MiddleRotatePoint;
 import robot.dSL.MovementAction;
 import robot.dSL.ORexpression;
 import robot.dSL.RightMovementAction;
+import robot.dSL.RightRotatePoint;
 import robot.dSL.RobotBehavior;
-import robot.dSL.RotateEnum;
 import robot.dSL.RotateMovementAction;
+import robot.dSL.RotatePoints;
 import robot.dSL.TouchEnum;
 import robot.dSL.TouchLiteral;
 
@@ -94,6 +101,34 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass rotatePointsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass leftRotatePointEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rightRotatePointEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass middleRotatePointEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass movementActionEClass = null;
 
   /**
@@ -129,6 +164,13 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass edgeLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass anDexpressionEClass = null;
 
   /**
@@ -143,7 +185,14 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum rotateEnumEEnum = null;
+  private EEnum lrEnumEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum fbEnumEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -151,6 +200,13 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
    * @generated
    */
   private EEnum actionEnumEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum edgeEnumEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -364,9 +420,9 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRotateMovementAction_Rotateleft()
+  public EClass getRotatePoints()
   {
-    return (EAttribute)rotateMovementActionEClass.getEStructuralFeatures().get(0);
+    return rotatePointsEClass;
   }
 
   /**
@@ -374,9 +430,9 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRotateMovementAction_Leftdir()
+  public EAttribute getRotatePoints_Degrees()
   {
-    return (EAttribute)rotateMovementActionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)rotatePointsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -384,9 +440,9 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRotateMovementAction_Rotateright()
+  public EClass getLeftRotatePoint()
   {
-    return (EAttribute)rotateMovementActionEClass.getEStructuralFeatures().get(2);
+    return leftRotatePointEClass;
   }
 
   /**
@@ -394,9 +450,49 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRotateMovementAction_Rightdir()
+  public EAttribute getLeftRotatePoint_Leftdir()
   {
-    return (EAttribute)rotateMovementActionEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)leftRotatePointEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRightRotatePoint()
+  {
+    return rightRotatePointEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRightRotatePoint_Rightdir()
+  {
+    return (EAttribute)rightRotatePointEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMiddleRotatePoint()
+  {
+    return middleRotatePointEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMiddleRotatePoint_Middledir()
+  {
+    return (EAttribute)middleRotatePointEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -504,6 +600,26 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getEdgeLiteral()
+  {
+    return edgeLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEdgeLiteral_Edge()
+  {
+    return (EAttribute)edgeLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getANDexpression()
   {
     return anDexpressionEClass;
@@ -564,9 +680,19 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getRotateEnum()
+  public EEnum getLREnum()
   {
-    return rotateEnumEEnum;
+    return lrEnumEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getFBEnum()
+  {
+    return fbEnumEEnum;
   }
 
   /**
@@ -577,6 +703,16 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
   public EEnum getActionEnum()
   {
     return actionEnumEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getEdgeEnum()
+  {
+    return edgeEnumEEnum;
   }
 
   /**
@@ -648,10 +784,18 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
     createEReference(rightMovementActionEClass, RIGHT_MOVEMENT_ACTION__RIGHTMOVE);
 
     rotateMovementActionEClass = createEClass(ROTATE_MOVEMENT_ACTION);
-    createEAttribute(rotateMovementActionEClass, ROTATE_MOVEMENT_ACTION__ROTATELEFT);
-    createEAttribute(rotateMovementActionEClass, ROTATE_MOVEMENT_ACTION__LEFTDIR);
-    createEAttribute(rotateMovementActionEClass, ROTATE_MOVEMENT_ACTION__ROTATERIGHT);
-    createEAttribute(rotateMovementActionEClass, ROTATE_MOVEMENT_ACTION__RIGHTDIR);
+
+    rotatePointsEClass = createEClass(ROTATE_POINTS);
+    createEAttribute(rotatePointsEClass, ROTATE_POINTS__DEGREES);
+
+    leftRotatePointEClass = createEClass(LEFT_ROTATE_POINT);
+    createEAttribute(leftRotatePointEClass, LEFT_ROTATE_POINT__LEFTDIR);
+
+    rightRotatePointEClass = createEClass(RIGHT_ROTATE_POINT);
+    createEAttribute(rightRotatePointEClass, RIGHT_ROTATE_POINT__RIGHTDIR);
+
+    middleRotatePointEClass = createEClass(MIDDLE_ROTATE_POINT);
+    createEAttribute(middleRotatePointEClass, MIDDLE_ROTATE_POINT__MIDDLEDIR);
 
     movementActionEClass = createEClass(MOVEMENT_ACTION);
     createEAttribute(movementActionEClass, MOVEMENT_ACTION__ACTIONENUM);
@@ -668,6 +812,9 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
     distanceLiteralEClass = createEClass(DISTANCE_LITERAL);
     createEAttribute(distanceLiteralEClass, DISTANCE_LITERAL__DISTANCE);
 
+    edgeLiteralEClass = createEClass(EDGE_LITERAL);
+    createEAttribute(edgeLiteralEClass, EDGE_LITERAL__EDGE);
+
     anDexpressionEClass = createEClass(AN_DEXPRESSION);
     createEReference(anDexpressionEClass, AN_DEXPRESSION__LEFT);
     createEReference(anDexpressionEClass, AN_DEXPRESSION__RIGHT);
@@ -677,8 +824,10 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
     createEReference(oRexpressionEClass, OREXPRESSION__RIGHT);
 
     // Create enums
-    rotateEnumEEnum = createEEnum(ROTATE_ENUM);
+    lrEnumEEnum = createEEnum(LR_ENUM);
+    fbEnumEEnum = createEEnum(FB_ENUM);
     actionEnumEEnum = createEEnum(ACTION_ENUM);
+    edgeEnumEEnum = createEEnum(EDGE_ENUM);
     touchEnumEEnum = createEEnum(TOUCH_ENUM);
     colorEnumEEnum = createEEnum(COLOR_ENUM);
   }
@@ -715,10 +864,15 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
     leftMovementActionEClass.getESuperTypes().add(this.getActions());
     rightMovementActionEClass.getESuperTypes().add(this.getActions());
     rotateMovementActionEClass.getESuperTypes().add(this.getActions());
+    rotatePointsEClass.getESuperTypes().add(this.getRotateMovementAction());
+    leftRotatePointEClass.getESuperTypes().add(this.getRotatePoints());
+    rightRotatePointEClass.getESuperTypes().add(this.getRotatePoints());
+    middleRotatePointEClass.getESuperTypes().add(this.getRotatePoints());
     expressionBracketEClass.getESuperTypes().add(this.getExpression());
     touchLiteralEClass.getESuperTypes().add(this.getExpression());
     colorLiteralEClass.getESuperTypes().add(this.getExpression());
     distanceLiteralEClass.getESuperTypes().add(this.getExpression());
+    edgeLiteralEClass.getESuperTypes().add(this.getExpression());
     anDexpressionEClass.getESuperTypes().add(this.getExpression());
     oRexpressionEClass.getESuperTypes().add(this.getExpression());
 
@@ -742,10 +896,18 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
     initEReference(getRightMovementAction_Rightmove(), this.getMovementAction(), null, "rightmove", null, 0, 1, RightMovementAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rotateMovementActionEClass, RotateMovementAction.class, "RotateMovementAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRotateMovementAction_Rotateleft(), ecorePackage.getEInt(), "rotateleft", null, 0, 1, RotateMovementAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRotateMovementAction_Leftdir(), this.getRotateEnum(), "leftdir", null, 0, 1, RotateMovementAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRotateMovementAction_Rotateright(), ecorePackage.getEInt(), "rotateright", null, 0, 1, RotateMovementAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRotateMovementAction_Rightdir(), this.getRotateEnum(), "rightdir", null, 0, 1, RotateMovementAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rotatePointsEClass, RotatePoints.class, "RotatePoints", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRotatePoints_Degrees(), ecorePackage.getEInt(), "degrees", null, 0, 1, RotatePoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(leftRotatePointEClass, LeftRotatePoint.class, "LeftRotatePoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLeftRotatePoint_Leftdir(), this.getFBEnum(), "leftdir", null, 0, 1, LeftRotatePoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rightRotatePointEClass, RightRotatePoint.class, "RightRotatePoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRightRotatePoint_Rightdir(), this.getFBEnum(), "rightdir", null, 0, 1, RightRotatePoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(middleRotatePointEClass, MiddleRotatePoint.class, "MiddleRotatePoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMiddleRotatePoint_Middledir(), this.getLREnum(), "middledir", null, 0, 1, MiddleRotatePoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(movementActionEClass, MovementAction.class, "MovementAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMovementAction_Actionenum(), this.getActionEnum(), "actionenum", null, 0, 1, MovementAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -762,6 +924,9 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
     initEClass(distanceLiteralEClass, DistanceLiteral.class, "DistanceLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDistanceLiteral_Distance(), ecorePackage.getEInt(), "distance", null, 0, 1, DistanceLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(edgeLiteralEClass, EdgeLiteral.class, "EdgeLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEdgeLiteral_Edge(), this.getEdgeEnum(), "edge", null, 0, 1, EdgeLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(anDexpressionEClass, ANDexpression.class, "ANDexpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getANDexpression_Left(), this.getExpression(), null, "left", null, 0, 1, ANDexpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getANDexpression_Right(), this.getExpression(), null, "right", null, 0, 1, ANDexpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -771,14 +936,23 @@ public class DSLPackageImpl extends EPackageImpl implements DSLPackage
     initEReference(getORexpression_Right(), this.getExpression(), null, "right", null, 0, 1, ORexpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(rotateEnumEEnum, RotateEnum.class, "RotateEnum");
-    addEEnumLiteral(rotateEnumEEnum, RotateEnum.FORWARD);
-    addEEnumLiteral(rotateEnumEEnum, RotateEnum.BACKWARD);
+    initEEnum(lrEnumEEnum, LREnum.class, "LREnum");
+    addEEnumLiteral(lrEnumEEnum, LREnum.LEFT);
+    addEEnumLiteral(lrEnumEEnum, LREnum.RIGHT);
+
+    initEEnum(fbEnumEEnum, FBEnum.class, "FBEnum");
+    addEEnumLiteral(fbEnumEEnum, FBEnum.FORWARD);
+    addEEnumLiteral(fbEnumEEnum, FBEnum.BACKWARD);
 
     initEEnum(actionEnumEEnum, ActionEnum.class, "ActionEnum");
     addEEnumLiteral(actionEnumEEnum, ActionEnum.FORWARD);
     addEEnumLiteral(actionEnumEEnum, ActionEnum.BACKWARD);
     addEEnumLiteral(actionEnumEEnum, ActionEnum.STOP);
+
+    initEEnum(edgeEnumEEnum, EdgeEnum.class, "EdgeEnum");
+    addEEnumLiteral(edgeEnumEEnum, EdgeEnum.FRONTLEFT);
+    addEEnumLiteral(edgeEnumEEnum, EdgeEnum.FRONTRIGHT);
+    addEEnumLiteral(edgeEnumEEnum, EdgeEnum.BACK);
 
     initEEnum(touchEnumEEnum, TouchEnum.class, "TouchEnum");
     addEEnumLiteral(touchEnumEEnum, TouchEnum.LEFT);

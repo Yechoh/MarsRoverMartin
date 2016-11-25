@@ -237,13 +237,60 @@ public interface DSLPackage extends EPackage
   int ROTATE_MOVEMENT_ACTION = 6;
 
   /**
-   * The feature id for the '<em><b>Rotateleft</b></em>' attribute.
+   * The number of structural features of the '<em>Rotate Movement Action</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROTATE_MOVEMENT_ACTION__ROTATELEFT = ACTIONS_FEATURE_COUNT + 0;
+  int ROTATE_MOVEMENT_ACTION_FEATURE_COUNT = ACTIONS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link robot.dSL.impl.RotatePointsImpl <em>Rotate Points</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see robot.dSL.impl.RotatePointsImpl
+   * @see robot.dSL.impl.DSLPackageImpl#getRotatePoints()
+   * @generated
+   */
+  int ROTATE_POINTS = 7;
+
+  /**
+   * The feature id for the '<em><b>Degrees</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROTATE_POINTS__DEGREES = ROTATE_MOVEMENT_ACTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Rotate Points</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROTATE_POINTS_FEATURE_COUNT = ROTATE_MOVEMENT_ACTION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link robot.dSL.impl.LeftRotatePointImpl <em>Left Rotate Point</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see robot.dSL.impl.LeftRotatePointImpl
+   * @see robot.dSL.impl.DSLPackageImpl#getLeftRotatePoint()
+   * @generated
+   */
+  int LEFT_ROTATE_POINT = 8;
+
+  /**
+   * The feature id for the '<em><b>Degrees</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LEFT_ROTATE_POINT__DEGREES = ROTATE_POINTS__DEGREES;
 
   /**
    * The feature id for the '<em><b>Leftdir</b></em>' attribute.
@@ -252,16 +299,35 @@ public interface DSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROTATE_MOVEMENT_ACTION__LEFTDIR = ACTIONS_FEATURE_COUNT + 1;
+  int LEFT_ROTATE_POINT__LEFTDIR = ROTATE_POINTS_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Rotateright</b></em>' attribute.
+   * The number of structural features of the '<em>Left Rotate Point</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROTATE_MOVEMENT_ACTION__ROTATERIGHT = ACTIONS_FEATURE_COUNT + 2;
+  int LEFT_ROTATE_POINT_FEATURE_COUNT = ROTATE_POINTS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link robot.dSL.impl.RightRotatePointImpl <em>Right Rotate Point</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see robot.dSL.impl.RightRotatePointImpl
+   * @see robot.dSL.impl.DSLPackageImpl#getRightRotatePoint()
+   * @generated
+   */
+  int RIGHT_ROTATE_POINT = 9;
+
+  /**
+   * The feature id for the '<em><b>Degrees</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RIGHT_ROTATE_POINT__DEGREES = ROTATE_POINTS__DEGREES;
 
   /**
    * The feature id for the '<em><b>Rightdir</b></em>' attribute.
@@ -270,16 +336,53 @@ public interface DSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROTATE_MOVEMENT_ACTION__RIGHTDIR = ACTIONS_FEATURE_COUNT + 3;
+  int RIGHT_ROTATE_POINT__RIGHTDIR = ROTATE_POINTS_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Rotate Movement Action</em>' class.
+   * The number of structural features of the '<em>Right Rotate Point</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROTATE_MOVEMENT_ACTION_FEATURE_COUNT = ACTIONS_FEATURE_COUNT + 4;
+  int RIGHT_ROTATE_POINT_FEATURE_COUNT = ROTATE_POINTS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link robot.dSL.impl.MiddleRotatePointImpl <em>Middle Rotate Point</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see robot.dSL.impl.MiddleRotatePointImpl
+   * @see robot.dSL.impl.DSLPackageImpl#getMiddleRotatePoint()
+   * @generated
+   */
+  int MIDDLE_ROTATE_POINT = 10;
+
+  /**
+   * The feature id for the '<em><b>Degrees</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MIDDLE_ROTATE_POINT__DEGREES = ROTATE_POINTS__DEGREES;
+
+  /**
+   * The feature id for the '<em><b>Middledir</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MIDDLE_ROTATE_POINT__MIDDLEDIR = ROTATE_POINTS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Middle Rotate Point</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MIDDLE_ROTATE_POINT_FEATURE_COUNT = ROTATE_POINTS_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link robot.dSL.impl.MovementActionImpl <em>Movement Action</em>}' class.
@@ -289,7 +392,7 @@ public interface DSLPackage extends EPackage
    * @see robot.dSL.impl.DSLPackageImpl#getMovementAction()
    * @generated
    */
-  int MOVEMENT_ACTION = 7;
+  int MOVEMENT_ACTION = 11;
 
   /**
    * The feature id for the '<em><b>Actionenum</b></em>' attribute.
@@ -317,7 +420,7 @@ public interface DSLPackage extends EPackage
    * @see robot.dSL.impl.DSLPackageImpl#getExpressionBracket()
    * @generated
    */
-  int EXPRESSION_BRACKET = 8;
+  int EXPRESSION_BRACKET = 12;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -345,7 +448,7 @@ public interface DSLPackage extends EPackage
    * @see robot.dSL.impl.DSLPackageImpl#getTouchLiteral()
    * @generated
    */
-  int TOUCH_LITERAL = 9;
+  int TOUCH_LITERAL = 13;
 
   /**
    * The feature id for the '<em><b>Touch</b></em>' attribute.
@@ -373,7 +476,7 @@ public interface DSLPackage extends EPackage
    * @see robot.dSL.impl.DSLPackageImpl#getColorLiteral()
    * @generated
    */
-  int COLOR_LITERAL = 10;
+  int COLOR_LITERAL = 14;
 
   /**
    * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -401,7 +504,7 @@ public interface DSLPackage extends EPackage
    * @see robot.dSL.impl.DSLPackageImpl#getDistanceLiteral()
    * @generated
    */
-  int DISTANCE_LITERAL = 11;
+  int DISTANCE_LITERAL = 15;
 
   /**
    * The feature id for the '<em><b>Distance</b></em>' attribute.
@@ -422,6 +525,34 @@ public interface DSLPackage extends EPackage
   int DISTANCE_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link robot.dSL.impl.EdgeLiteralImpl <em>Edge Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see robot.dSL.impl.EdgeLiteralImpl
+   * @see robot.dSL.impl.DSLPackageImpl#getEdgeLiteral()
+   * @generated
+   */
+  int EDGE_LITERAL = 16;
+
+  /**
+   * The feature id for the '<em><b>Edge</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDGE_LITERAL__EDGE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Edge Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDGE_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link robot.dSL.impl.ANDexpressionImpl <em>AN Dexpression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -429,7 +560,7 @@ public interface DSLPackage extends EPackage
    * @see robot.dSL.impl.DSLPackageImpl#getANDexpression()
    * @generated
    */
-  int AN_DEXPRESSION = 12;
+  int AN_DEXPRESSION = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -466,7 +597,7 @@ public interface DSLPackage extends EPackage
    * @see robot.dSL.impl.DSLPackageImpl#getORexpression()
    * @generated
    */
-  int OREXPRESSION = 13;
+  int OREXPRESSION = 18;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -496,14 +627,24 @@ public interface DSLPackage extends EPackage
   int OREXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link robot.dSL.RotateEnum <em>Rotate Enum</em>}' enum.
+   * The meta object id for the '{@link robot.dSL.LREnum <em>LR Enum</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see robot.dSL.RotateEnum
-   * @see robot.dSL.impl.DSLPackageImpl#getRotateEnum()
+   * @see robot.dSL.LREnum
+   * @see robot.dSL.impl.DSLPackageImpl#getLREnum()
    * @generated
    */
-  int ROTATE_ENUM = 14;
+  int LR_ENUM = 19;
+
+  /**
+   * The meta object id for the '{@link robot.dSL.FBEnum <em>FB Enum</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see robot.dSL.FBEnum
+   * @see robot.dSL.impl.DSLPackageImpl#getFBEnum()
+   * @generated
+   */
+  int FB_ENUM = 20;
 
   /**
    * The meta object id for the '{@link robot.dSL.ActionEnum <em>Action Enum</em>}' enum.
@@ -513,7 +654,17 @@ public interface DSLPackage extends EPackage
    * @see robot.dSL.impl.DSLPackageImpl#getActionEnum()
    * @generated
    */
-  int ACTION_ENUM = 15;
+  int ACTION_ENUM = 21;
+
+  /**
+   * The meta object id for the '{@link robot.dSL.EdgeEnum <em>Edge Enum</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see robot.dSL.EdgeEnum
+   * @see robot.dSL.impl.DSLPackageImpl#getEdgeEnum()
+   * @generated
+   */
+  int EDGE_ENUM = 22;
 
   /**
    * The meta object id for the '{@link robot.dSL.TouchEnum <em>Touch Enum</em>}' enum.
@@ -523,7 +674,7 @@ public interface DSLPackage extends EPackage
    * @see robot.dSL.impl.DSLPackageImpl#getTouchEnum()
    * @generated
    */
-  int TOUCH_ENUM = 16;
+  int TOUCH_ENUM = 23;
 
   /**
    * The meta object id for the '{@link robot.dSL.ColorEnum <em>Color Enum</em>}' enum.
@@ -533,7 +684,7 @@ public interface DSLPackage extends EPackage
    * @see robot.dSL.impl.DSLPackageImpl#getColorEnum()
    * @generated
    */
-  int COLOR_ENUM = 17;
+  int COLOR_ENUM = 24;
 
 
   /**
@@ -673,48 +824,88 @@ public interface DSLPackage extends EPackage
   EClass getRotateMovementAction();
 
   /**
-   * Returns the meta object for the attribute '{@link robot.dSL.RotateMovementAction#getRotateleft <em>Rotateleft</em>}'.
+   * Returns the meta object for class '{@link robot.dSL.RotatePoints <em>Rotate Points</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Rotateleft</em>'.
-   * @see robot.dSL.RotateMovementAction#getRotateleft()
-   * @see #getRotateMovementAction()
+   * @return the meta object for class '<em>Rotate Points</em>'.
+   * @see robot.dSL.RotatePoints
    * @generated
    */
-  EAttribute getRotateMovementAction_Rotateleft();
+  EClass getRotatePoints();
 
   /**
-   * Returns the meta object for the attribute '{@link robot.dSL.RotateMovementAction#getLeftdir <em>Leftdir</em>}'.
+   * Returns the meta object for the attribute '{@link robot.dSL.RotatePoints#getDegrees <em>Degrees</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Degrees</em>'.
+   * @see robot.dSL.RotatePoints#getDegrees()
+   * @see #getRotatePoints()
+   * @generated
+   */
+  EAttribute getRotatePoints_Degrees();
+
+  /**
+   * Returns the meta object for class '{@link robot.dSL.LeftRotatePoint <em>Left Rotate Point</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Left Rotate Point</em>'.
+   * @see robot.dSL.LeftRotatePoint
+   * @generated
+   */
+  EClass getLeftRotatePoint();
+
+  /**
+   * Returns the meta object for the attribute '{@link robot.dSL.LeftRotatePoint#getLeftdir <em>Leftdir</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Leftdir</em>'.
-   * @see robot.dSL.RotateMovementAction#getLeftdir()
-   * @see #getRotateMovementAction()
+   * @see robot.dSL.LeftRotatePoint#getLeftdir()
+   * @see #getLeftRotatePoint()
    * @generated
    */
-  EAttribute getRotateMovementAction_Leftdir();
+  EAttribute getLeftRotatePoint_Leftdir();
 
   /**
-   * Returns the meta object for the attribute '{@link robot.dSL.RotateMovementAction#getRotateright <em>Rotateright</em>}'.
+   * Returns the meta object for class '{@link robot.dSL.RightRotatePoint <em>Right Rotate Point</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Rotateright</em>'.
-   * @see robot.dSL.RotateMovementAction#getRotateright()
-   * @see #getRotateMovementAction()
+   * @return the meta object for class '<em>Right Rotate Point</em>'.
+   * @see robot.dSL.RightRotatePoint
    * @generated
    */
-  EAttribute getRotateMovementAction_Rotateright();
+  EClass getRightRotatePoint();
 
   /**
-   * Returns the meta object for the attribute '{@link robot.dSL.RotateMovementAction#getRightdir <em>Rightdir</em>}'.
+   * Returns the meta object for the attribute '{@link robot.dSL.RightRotatePoint#getRightdir <em>Rightdir</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Rightdir</em>'.
-   * @see robot.dSL.RotateMovementAction#getRightdir()
-   * @see #getRotateMovementAction()
+   * @see robot.dSL.RightRotatePoint#getRightdir()
+   * @see #getRightRotatePoint()
    * @generated
    */
-  EAttribute getRotateMovementAction_Rightdir();
+  EAttribute getRightRotatePoint_Rightdir();
+
+  /**
+   * Returns the meta object for class '{@link robot.dSL.MiddleRotatePoint <em>Middle Rotate Point</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Middle Rotate Point</em>'.
+   * @see robot.dSL.MiddleRotatePoint
+   * @generated
+   */
+  EClass getMiddleRotatePoint();
+
+  /**
+   * Returns the meta object for the attribute '{@link robot.dSL.MiddleRotatePoint#getMiddledir <em>Middledir</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Middledir</em>'.
+   * @see robot.dSL.MiddleRotatePoint#getMiddledir()
+   * @see #getMiddleRotatePoint()
+   * @generated
+   */
+  EAttribute getMiddleRotatePoint_Middledir();
 
   /**
    * Returns the meta object for class '{@link robot.dSL.MovementAction <em>Movement Action</em>}'.
@@ -822,6 +1013,27 @@ public interface DSLPackage extends EPackage
   EAttribute getDistanceLiteral_Distance();
 
   /**
+   * Returns the meta object for class '{@link robot.dSL.EdgeLiteral <em>Edge Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Edge Literal</em>'.
+   * @see robot.dSL.EdgeLiteral
+   * @generated
+   */
+  EClass getEdgeLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link robot.dSL.EdgeLiteral#getEdge <em>Edge</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Edge</em>'.
+   * @see robot.dSL.EdgeLiteral#getEdge()
+   * @see #getEdgeLiteral()
+   * @generated
+   */
+  EAttribute getEdgeLiteral_Edge();
+
+  /**
    * Returns the meta object for class '{@link robot.dSL.ANDexpression <em>AN Dexpression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -886,14 +1098,24 @@ public interface DSLPackage extends EPackage
   EReference getORexpression_Right();
 
   /**
-   * Returns the meta object for enum '{@link robot.dSL.RotateEnum <em>Rotate Enum</em>}'.
+   * Returns the meta object for enum '{@link robot.dSL.LREnum <em>LR Enum</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Rotate Enum</em>'.
-   * @see robot.dSL.RotateEnum
+   * @return the meta object for enum '<em>LR Enum</em>'.
+   * @see robot.dSL.LREnum
    * @generated
    */
-  EEnum getRotateEnum();
+  EEnum getLREnum();
+
+  /**
+   * Returns the meta object for enum '{@link robot.dSL.FBEnum <em>FB Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>FB Enum</em>'.
+   * @see robot.dSL.FBEnum
+   * @generated
+   */
+  EEnum getFBEnum();
 
   /**
    * Returns the meta object for enum '{@link robot.dSL.ActionEnum <em>Action Enum</em>}'.
@@ -904,6 +1126,16 @@ public interface DSLPackage extends EPackage
    * @generated
    */
   EEnum getActionEnum();
+
+  /**
+   * Returns the meta object for enum '{@link robot.dSL.EdgeEnum <em>Edge Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Edge Enum</em>'.
+   * @see robot.dSL.EdgeEnum
+   * @generated
+   */
+  EEnum getEdgeEnum();
 
   /**
    * Returns the meta object for enum '{@link robot.dSL.TouchEnum <em>Touch Enum</em>}'.
@@ -1067,12 +1299,32 @@ public interface DSLPackage extends EPackage
     EClass ROTATE_MOVEMENT_ACTION = eINSTANCE.getRotateMovementAction();
 
     /**
-     * The meta object literal for the '<em><b>Rotateleft</b></em>' attribute feature.
+     * The meta object literal for the '{@link robot.dSL.impl.RotatePointsImpl <em>Rotate Points</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see robot.dSL.impl.RotatePointsImpl
+     * @see robot.dSL.impl.DSLPackageImpl#getRotatePoints()
+     * @generated
+     */
+    EClass ROTATE_POINTS = eINSTANCE.getRotatePoints();
+
+    /**
+     * The meta object literal for the '<em><b>Degrees</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ROTATE_MOVEMENT_ACTION__ROTATELEFT = eINSTANCE.getRotateMovementAction_Rotateleft();
+    EAttribute ROTATE_POINTS__DEGREES = eINSTANCE.getRotatePoints_Degrees();
+
+    /**
+     * The meta object literal for the '{@link robot.dSL.impl.LeftRotatePointImpl <em>Left Rotate Point</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see robot.dSL.impl.LeftRotatePointImpl
+     * @see robot.dSL.impl.DSLPackageImpl#getLeftRotatePoint()
+     * @generated
+     */
+    EClass LEFT_ROTATE_POINT = eINSTANCE.getLeftRotatePoint();
 
     /**
      * The meta object literal for the '<em><b>Leftdir</b></em>' attribute feature.
@@ -1080,15 +1332,17 @@ public interface DSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ROTATE_MOVEMENT_ACTION__LEFTDIR = eINSTANCE.getRotateMovementAction_Leftdir();
+    EAttribute LEFT_ROTATE_POINT__LEFTDIR = eINSTANCE.getLeftRotatePoint_Leftdir();
 
     /**
-     * The meta object literal for the '<em><b>Rotateright</b></em>' attribute feature.
+     * The meta object literal for the '{@link robot.dSL.impl.RightRotatePointImpl <em>Right Rotate Point</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see robot.dSL.impl.RightRotatePointImpl
+     * @see robot.dSL.impl.DSLPackageImpl#getRightRotatePoint()
      * @generated
      */
-    EAttribute ROTATE_MOVEMENT_ACTION__ROTATERIGHT = eINSTANCE.getRotateMovementAction_Rotateright();
+    EClass RIGHT_ROTATE_POINT = eINSTANCE.getRightRotatePoint();
 
     /**
      * The meta object literal for the '<em><b>Rightdir</b></em>' attribute feature.
@@ -1096,7 +1350,25 @@ public interface DSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ROTATE_MOVEMENT_ACTION__RIGHTDIR = eINSTANCE.getRotateMovementAction_Rightdir();
+    EAttribute RIGHT_ROTATE_POINT__RIGHTDIR = eINSTANCE.getRightRotatePoint_Rightdir();
+
+    /**
+     * The meta object literal for the '{@link robot.dSL.impl.MiddleRotatePointImpl <em>Middle Rotate Point</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see robot.dSL.impl.MiddleRotatePointImpl
+     * @see robot.dSL.impl.DSLPackageImpl#getMiddleRotatePoint()
+     * @generated
+     */
+    EClass MIDDLE_ROTATE_POINT = eINSTANCE.getMiddleRotatePoint();
+
+    /**
+     * The meta object literal for the '<em><b>Middledir</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MIDDLE_ROTATE_POINT__MIDDLEDIR = eINSTANCE.getMiddleRotatePoint_Middledir();
 
     /**
      * The meta object literal for the '{@link robot.dSL.impl.MovementActionImpl <em>Movement Action</em>}' class.
@@ -1189,6 +1461,24 @@ public interface DSLPackage extends EPackage
     EAttribute DISTANCE_LITERAL__DISTANCE = eINSTANCE.getDistanceLiteral_Distance();
 
     /**
+     * The meta object literal for the '{@link robot.dSL.impl.EdgeLiteralImpl <em>Edge Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see robot.dSL.impl.EdgeLiteralImpl
+     * @see robot.dSL.impl.DSLPackageImpl#getEdgeLiteral()
+     * @generated
+     */
+    EClass EDGE_LITERAL = eINSTANCE.getEdgeLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Edge</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EDGE_LITERAL__EDGE = eINSTANCE.getEdgeLiteral_Edge();
+
+    /**
      * The meta object literal for the '{@link robot.dSL.impl.ANDexpressionImpl <em>AN Dexpression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1241,14 +1531,24 @@ public interface DSLPackage extends EPackage
     EReference OREXPRESSION__RIGHT = eINSTANCE.getORexpression_Right();
 
     /**
-     * The meta object literal for the '{@link robot.dSL.RotateEnum <em>Rotate Enum</em>}' enum.
+     * The meta object literal for the '{@link robot.dSL.LREnum <em>LR Enum</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see robot.dSL.RotateEnum
-     * @see robot.dSL.impl.DSLPackageImpl#getRotateEnum()
+     * @see robot.dSL.LREnum
+     * @see robot.dSL.impl.DSLPackageImpl#getLREnum()
      * @generated
      */
-    EEnum ROTATE_ENUM = eINSTANCE.getRotateEnum();
+    EEnum LR_ENUM = eINSTANCE.getLREnum();
+
+    /**
+     * The meta object literal for the '{@link robot.dSL.FBEnum <em>FB Enum</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see robot.dSL.FBEnum
+     * @see robot.dSL.impl.DSLPackageImpl#getFBEnum()
+     * @generated
+     */
+    EEnum FB_ENUM = eINSTANCE.getFBEnum();
 
     /**
      * The meta object literal for the '{@link robot.dSL.ActionEnum <em>Action Enum</em>}' enum.
@@ -1259,6 +1559,16 @@ public interface DSLPackage extends EPackage
      * @generated
      */
     EEnum ACTION_ENUM = eINSTANCE.getActionEnum();
+
+    /**
+     * The meta object literal for the '{@link robot.dSL.EdgeEnum <em>Edge Enum</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see robot.dSL.EdgeEnum
+     * @see robot.dSL.impl.DSLPackageImpl#getEdgeEnum()
+     * @generated
+     */
+    EEnum EDGE_ENUM = eINSTANCE.getEdgeEnum();
 
     /**
      * The meta object literal for the '{@link robot.dSL.TouchEnum <em>Touch Enum</em>}' enum.

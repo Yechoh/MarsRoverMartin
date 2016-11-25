@@ -73,11 +73,16 @@ public class DSLFactoryImpl extends EFactoryImpl implements DSLFactory
       case DSLPackage.LEFT_MOVEMENT_ACTION: return createLeftMovementAction();
       case DSLPackage.RIGHT_MOVEMENT_ACTION: return createRightMovementAction();
       case DSLPackage.ROTATE_MOVEMENT_ACTION: return createRotateMovementAction();
+      case DSLPackage.ROTATE_POINTS: return createRotatePoints();
+      case DSLPackage.LEFT_ROTATE_POINT: return createLeftRotatePoint();
+      case DSLPackage.RIGHT_ROTATE_POINT: return createRightRotatePoint();
+      case DSLPackage.MIDDLE_ROTATE_POINT: return createMiddleRotatePoint();
       case DSLPackage.MOVEMENT_ACTION: return createMovementAction();
       case DSLPackage.EXPRESSION_BRACKET: return createExpressionBracket();
       case DSLPackage.TOUCH_LITERAL: return createTouchLiteral();
       case DSLPackage.COLOR_LITERAL: return createColorLiteral();
       case DSLPackage.DISTANCE_LITERAL: return createDistanceLiteral();
+      case DSLPackage.EDGE_LITERAL: return createEdgeLiteral();
       case DSLPackage.AN_DEXPRESSION: return createANDexpression();
       case DSLPackage.OREXPRESSION: return createORexpression();
       default:
@@ -95,10 +100,14 @@ public class DSLFactoryImpl extends EFactoryImpl implements DSLFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case DSLPackage.ROTATE_ENUM:
-        return createRotateEnumFromString(eDataType, initialValue);
+      case DSLPackage.LR_ENUM:
+        return createLREnumFromString(eDataType, initialValue);
+      case DSLPackage.FB_ENUM:
+        return createFBEnumFromString(eDataType, initialValue);
       case DSLPackage.ACTION_ENUM:
         return createActionEnumFromString(eDataType, initialValue);
+      case DSLPackage.EDGE_ENUM:
+        return createEdgeEnumFromString(eDataType, initialValue);
       case DSLPackage.TOUCH_ENUM:
         return createTouchEnumFromString(eDataType, initialValue);
       case DSLPackage.COLOR_ENUM:
@@ -118,10 +127,14 @@ public class DSLFactoryImpl extends EFactoryImpl implements DSLFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case DSLPackage.ROTATE_ENUM:
-        return convertRotateEnumToString(eDataType, instanceValue);
+      case DSLPackage.LR_ENUM:
+        return convertLREnumToString(eDataType, instanceValue);
+      case DSLPackage.FB_ENUM:
+        return convertFBEnumToString(eDataType, instanceValue);
       case DSLPackage.ACTION_ENUM:
         return convertActionEnumToString(eDataType, instanceValue);
+      case DSLPackage.EDGE_ENUM:
+        return convertEdgeEnumToString(eDataType, instanceValue);
       case DSLPackage.TOUCH_ENUM:
         return convertTouchEnumToString(eDataType, instanceValue);
       case DSLPackage.COLOR_ENUM:
@@ -213,6 +226,50 @@ public class DSLFactoryImpl extends EFactoryImpl implements DSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public RotatePoints createRotatePoints()
+  {
+    RotatePointsImpl rotatePoints = new RotatePointsImpl();
+    return rotatePoints;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LeftRotatePoint createLeftRotatePoint()
+  {
+    LeftRotatePointImpl leftRotatePoint = new LeftRotatePointImpl();
+    return leftRotatePoint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RightRotatePoint createRightRotatePoint()
+  {
+    RightRotatePointImpl rightRotatePoint = new RightRotatePointImpl();
+    return rightRotatePoint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MiddleRotatePoint createMiddleRotatePoint()
+  {
+    MiddleRotatePointImpl middleRotatePoint = new MiddleRotatePointImpl();
+    return middleRotatePoint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public MovementAction createMovementAction()
   {
     MovementActionImpl movementAction = new MovementActionImpl();
@@ -268,6 +325,17 @@ public class DSLFactoryImpl extends EFactoryImpl implements DSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public EdgeLiteral createEdgeLiteral()
+  {
+    EdgeLiteralImpl edgeLiteral = new EdgeLiteralImpl();
+    return edgeLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ANDexpression createANDexpression()
   {
     ANDexpressionImpl anDexpression = new ANDexpressionImpl();
@@ -290,9 +358,9 @@ public class DSLFactoryImpl extends EFactoryImpl implements DSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RotateEnum createRotateEnumFromString(EDataType eDataType, String initialValue)
+  public LREnum createLREnumFromString(EDataType eDataType, String initialValue)
   {
-    RotateEnum result = RotateEnum.get(initialValue);
+    LREnum result = LREnum.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -302,7 +370,29 @@ public class DSLFactoryImpl extends EFactoryImpl implements DSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertRotateEnumToString(EDataType eDataType, Object instanceValue)
+  public String convertLREnumToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FBEnum createFBEnumFromString(EDataType eDataType, String initialValue)
+  {
+    FBEnum result = FBEnum.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertFBEnumToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
@@ -325,6 +415,28 @@ public class DSLFactoryImpl extends EFactoryImpl implements DSLFactory
    * @generated
    */
   public String convertActionEnumToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EdgeEnum createEdgeEnumFromString(EDataType eDataType, String initialValue)
+  {
+    EdgeEnum result = EdgeEnum.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertEdgeEnumToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

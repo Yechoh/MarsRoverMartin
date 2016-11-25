@@ -125,6 +125,45 @@ public class DSLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DSLPackage.ROTATE_POINTS:
+      {
+        RotatePoints rotatePoints = (RotatePoints)theEObject;
+        T result = caseRotatePoints(rotatePoints);
+        if (result == null) result = caseRotateMovementAction(rotatePoints);
+        if (result == null) result = caseActions(rotatePoints);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DSLPackage.LEFT_ROTATE_POINT:
+      {
+        LeftRotatePoint leftRotatePoint = (LeftRotatePoint)theEObject;
+        T result = caseLeftRotatePoint(leftRotatePoint);
+        if (result == null) result = caseRotatePoints(leftRotatePoint);
+        if (result == null) result = caseRotateMovementAction(leftRotatePoint);
+        if (result == null) result = caseActions(leftRotatePoint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DSLPackage.RIGHT_ROTATE_POINT:
+      {
+        RightRotatePoint rightRotatePoint = (RightRotatePoint)theEObject;
+        T result = caseRightRotatePoint(rightRotatePoint);
+        if (result == null) result = caseRotatePoints(rightRotatePoint);
+        if (result == null) result = caseRotateMovementAction(rightRotatePoint);
+        if (result == null) result = caseActions(rightRotatePoint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DSLPackage.MIDDLE_ROTATE_POINT:
+      {
+        MiddleRotatePoint middleRotatePoint = (MiddleRotatePoint)theEObject;
+        T result = caseMiddleRotatePoint(middleRotatePoint);
+        if (result == null) result = caseRotatePoints(middleRotatePoint);
+        if (result == null) result = caseRotateMovementAction(middleRotatePoint);
+        if (result == null) result = caseActions(middleRotatePoint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DSLPackage.MOVEMENT_ACTION:
       {
         MovementAction movementAction = (MovementAction)theEObject;
@@ -161,6 +200,14 @@ public class DSLSwitch<T> extends Switch<T>
         DistanceLiteral distanceLiteral = (DistanceLiteral)theEObject;
         T result = caseDistanceLiteral(distanceLiteral);
         if (result == null) result = caseExpression(distanceLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DSLPackage.EDGE_LITERAL:
+      {
+        EdgeLiteral edgeLiteral = (EdgeLiteral)theEObject;
+        T result = caseEdgeLiteral(edgeLiteral);
+        if (result == null) result = caseExpression(edgeLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -297,6 +344,70 @@ public class DSLSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Rotate Points</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rotate Points</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRotatePoints(RotatePoints object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Left Rotate Point</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Left Rotate Point</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLeftRotatePoint(LeftRotatePoint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Right Rotate Point</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Right Rotate Point</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRightRotatePoint(RightRotatePoint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Middle Rotate Point</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Middle Rotate Point</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMiddleRotatePoint(MiddleRotatePoint object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Movement Action</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -372,6 +483,22 @@ public class DSLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDistanceLiteral(DistanceLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Edge Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Edge Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEdgeLiteral(EdgeLiteral object)
   {
     return null;
   }

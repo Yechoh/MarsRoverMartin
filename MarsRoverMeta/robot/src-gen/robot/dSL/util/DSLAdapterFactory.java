@@ -111,6 +111,26 @@ public class DSLAdapterFactory extends AdapterFactoryImpl
         return createRotateMovementActionAdapter();
       }
       @Override
+      public Adapter caseRotatePoints(RotatePoints object)
+      {
+        return createRotatePointsAdapter();
+      }
+      @Override
+      public Adapter caseLeftRotatePoint(LeftRotatePoint object)
+      {
+        return createLeftRotatePointAdapter();
+      }
+      @Override
+      public Adapter caseRightRotatePoint(RightRotatePoint object)
+      {
+        return createRightRotatePointAdapter();
+      }
+      @Override
+      public Adapter caseMiddleRotatePoint(MiddleRotatePoint object)
+      {
+        return createMiddleRotatePointAdapter();
+      }
+      @Override
       public Adapter caseMovementAction(MovementAction object)
       {
         return createMovementActionAdapter();
@@ -134,6 +154,11 @@ public class DSLAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDistanceLiteral(DistanceLiteral object)
       {
         return createDistanceLiteralAdapter();
+      }
+      @Override
+      public Adapter caseEdgeLiteral(EdgeLiteral object)
+      {
+        return createEdgeLiteralAdapter();
       }
       @Override
       public Adapter caseANDexpression(ANDexpression object)
@@ -273,6 +298,66 @@ public class DSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link robot.dSL.RotatePoints <em>Rotate Points</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see robot.dSL.RotatePoints
+   * @generated
+   */
+  public Adapter createRotatePointsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link robot.dSL.LeftRotatePoint <em>Left Rotate Point</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see robot.dSL.LeftRotatePoint
+   * @generated
+   */
+  public Adapter createLeftRotatePointAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link robot.dSL.RightRotatePoint <em>Right Rotate Point</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see robot.dSL.RightRotatePoint
+   * @generated
+   */
+  public Adapter createRightRotatePointAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link robot.dSL.MiddleRotatePoint <em>Middle Rotate Point</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see robot.dSL.MiddleRotatePoint
+   * @generated
+   */
+  public Adapter createMiddleRotatePointAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link robot.dSL.MovementAction <em>Movement Action</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -343,6 +428,21 @@ public class DSLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDistanceLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link robot.dSL.EdgeLiteral <em>Edge Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see robot.dSL.EdgeLiteral
+   * @generated
+   */
+  public Adapter createEdgeLiteralAdapter()
   {
     return null;
   }

@@ -19,13 +19,16 @@ import robot.dSL.Behaviors;
 import robot.dSL.ColorLiteral;
 import robot.dSL.DSLPackage;
 import robot.dSL.DistanceLiteral;
+import robot.dSL.EdgeLiteral;
 import robot.dSL.ExpressionBracket;
 import robot.dSL.LeftMovementAction;
+import robot.dSL.LeftRotatePoint;
+import robot.dSL.MiddleRotatePoint;
 import robot.dSL.MovementAction;
 import robot.dSL.ORexpression;
 import robot.dSL.RightMovementAction;
+import robot.dSL.RightRotatePoint;
 import robot.dSL.RobotBehavior;
-import robot.dSL.RotateMovementAction;
 import robot.dSL.TouchLiteral;
 import robot.services.DSLGrammarAccess;
 
@@ -55,12 +58,39 @@ public class DSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DSLPackage.DISTANCE_LITERAL:
 				sequence_DistanceLiteral(context, (DistanceLiteral) semanticObject); 
 				return; 
+			case DSLPackage.EDGE_LITERAL:
+				sequence_EdgeLiteral(context, (EdgeLiteral) semanticObject); 
+				return; 
 			case DSLPackage.EXPRESSION_BRACKET:
 				sequence_ExpressionBracket(context, (ExpressionBracket) semanticObject); 
 				return; 
 			case DSLPackage.LEFT_MOVEMENT_ACTION:
 				sequence_LeftMovementAction(context, (LeftMovementAction) semanticObject); 
 				return; 
+			case DSLPackage.LEFT_ROTATE_POINT:
+				if (rule == grammarAccess.getRotatePointsRule()
+						|| rule == grammarAccess.getLeftRotatePointRule()) {
+					sequence_LeftRotatePoint(context, (LeftRotatePoint) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getActionsRule()
+						|| rule == grammarAccess.getRotateMovementActionRule()) {
+					sequence_LeftRotatePoint_RotateMovementAction(context, (LeftRotatePoint) semanticObject); 
+					return; 
+				}
+				else break;
+			case DSLPackage.MIDDLE_ROTATE_POINT:
+				if (rule == grammarAccess.getRotatePointsRule()
+						|| rule == grammarAccess.getMiddleRotatePointRule()) {
+					sequence_MiddleRotatePoint(context, (MiddleRotatePoint) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getActionsRule()
+						|| rule == grammarAccess.getRotateMovementActionRule()) {
+					sequence_MiddleRotatePoint_RotateMovementAction(context, (MiddleRotatePoint) semanticObject); 
+					return; 
+				}
+				else break;
 			case DSLPackage.MOVEMENT_ACTION:
 				sequence_MovementAction(context, (MovementAction) semanticObject); 
 				return; 
@@ -70,11 +100,20 @@ public class DSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DSLPackage.RIGHT_MOVEMENT_ACTION:
 				sequence_RightMovementAction(context, (RightMovementAction) semanticObject); 
 				return; 
+			case DSLPackage.RIGHT_ROTATE_POINT:
+				if (rule == grammarAccess.getRotatePointsRule()
+						|| rule == grammarAccess.getRightRotatePointRule()) {
+					sequence_RightRotatePoint(context, (RightRotatePoint) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getActionsRule()
+						|| rule == grammarAccess.getRotateMovementActionRule()) {
+					sequence_RightRotatePoint_RotateMovementAction(context, (RightRotatePoint) semanticObject); 
+					return; 
+				}
+				else break;
 			case DSLPackage.ROBOT_BEHAVIOR:
 				sequence_RobotBehavior(context, (RobotBehavior) semanticObject); 
-				return; 
-			case DSLPackage.ROTATE_MOVEMENT_ACTION:
-				sequence_RotateMovementAction(context, (RotateMovementAction) semanticObject); 
 				return; 
 			case DSLPackage.TOUCH_LITERAL:
 				sequence_TouchLiteral(context, (TouchLiteral) semanticObject); 
@@ -115,7 +154,7 @@ public class DSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.COLOR_LITERAL__COLOR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getColorLiteralAccess().getColorColorEnumEnumRuleCall_1_0(), semanticObject.getColor());
+		feeder.accept(grammarAccess.getColorLiteralAccess().getColorColorEnumEnumRuleCall_3_0(), semanticObject.getColor());
 		feeder.finish();
 	}
 	
@@ -139,7 +178,31 @@ public class DSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.DISTANCE_LITERAL__DISTANCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDistanceLiteralAccess().getDistanceINTTerminalRuleCall_1_0(), semanticObject.getDistance());
+		feeder.accept(grammarAccess.getDistanceLiteralAccess().getDistanceINTTerminalRuleCall_2_0(), semanticObject.getDistance());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns EdgeLiteral
+	 *     Expression1 returns EdgeLiteral
+	 *     Expression1.ANDexpression_1_0 returns EdgeLiteral
+	 *     Expression2 returns EdgeLiteral
+	 *     Expression2.ORexpression_1_0 returns EdgeLiteral
+	 *     Expression3 returns EdgeLiteral
+	 *     EdgeLiteral returns EdgeLiteral
+	 *
+	 * Constraint:
+	 *     edge=EdgeEnum
+	 */
+	protected void sequence_EdgeLiteral(ISerializationContext context, EdgeLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.EDGE_LITERAL__EDGE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.EDGE_LITERAL__EDGE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEdgeLiteralAccess().getEdgeEdgeEnumEnumRuleCall_2_0(), semanticObject.getEdge());
 		feeder.finish();
 	}
 	
@@ -237,6 +300,88 @@ public class DSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     RotatePoints returns LeftRotatePoint
+	 *     LeftRotatePoint returns LeftRotatePoint
+	 *
+	 * Constraint:
+	 *     leftdir=FBEnum
+	 */
+	protected void sequence_LeftRotatePoint(ISerializationContext context, LeftRotatePoint semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.LEFT_ROTATE_POINT__LEFTDIR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.LEFT_ROTATE_POINT__LEFTDIR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLeftRotatePointAccess().getLeftdirFBEnumEnumRuleCall_2_0(), semanticObject.getLeftdir());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Actions returns LeftRotatePoint
+	 *     RotateMovementAction returns LeftRotatePoint
+	 *
+	 * Constraint:
+	 *     (leftdir=FBEnum degrees=INT)
+	 */
+	protected void sequence_LeftRotatePoint_RotateMovementAction(ISerializationContext context, LeftRotatePoint semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.LEFT_ROTATE_POINT__LEFTDIR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.LEFT_ROTATE_POINT__LEFTDIR));
+			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.ROTATE_POINTS__DEGREES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.ROTATE_POINTS__DEGREES));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLeftRotatePointAccess().getLeftdirFBEnumEnumRuleCall_2_0(), semanticObject.getLeftdir());
+		feeder.accept(grammarAccess.getRotateMovementActionAccess().getDegreesINTTerminalRuleCall_4_0(), semanticObject.getDegrees());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RotatePoints returns MiddleRotatePoint
+	 *     MiddleRotatePoint returns MiddleRotatePoint
+	 *
+	 * Constraint:
+	 *     middledir=LREnum
+	 */
+	protected void sequence_MiddleRotatePoint(ISerializationContext context, MiddleRotatePoint semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.MIDDLE_ROTATE_POINT__MIDDLEDIR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.MIDDLE_ROTATE_POINT__MIDDLEDIR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMiddleRotatePointAccess().getMiddledirLREnumEnumRuleCall_3_0(), semanticObject.getMiddledir());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Actions returns MiddleRotatePoint
+	 *     RotateMovementAction returns MiddleRotatePoint
+	 *
+	 * Constraint:
+	 *     (middledir=LREnum degrees=INT)
+	 */
+	protected void sequence_MiddleRotatePoint_RotateMovementAction(ISerializationContext context, MiddleRotatePoint semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.MIDDLE_ROTATE_POINT__MIDDLEDIR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.MIDDLE_ROTATE_POINT__MIDDLEDIR));
+			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.ROTATE_POINTS__DEGREES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.ROTATE_POINTS__DEGREES));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMiddleRotatePointAccess().getMiddledirLREnumEnumRuleCall_3_0(), semanticObject.getMiddledir());
+		feeder.accept(grammarAccess.getRotateMovementActionAccess().getDegreesINTTerminalRuleCall_4_0(), semanticObject.getDegrees());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     MovementAction returns MovementAction
 	 *
 	 * Constraint:
@@ -274,6 +419,47 @@ public class DSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     RotatePoints returns RightRotatePoint
+	 *     RightRotatePoint returns RightRotatePoint
+	 *
+	 * Constraint:
+	 *     rightdir=FBEnum
+	 */
+	protected void sequence_RightRotatePoint(ISerializationContext context, RightRotatePoint semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.RIGHT_ROTATE_POINT__RIGHTDIR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.RIGHT_ROTATE_POINT__RIGHTDIR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRightRotatePointAccess().getRightdirFBEnumEnumRuleCall_2_0(), semanticObject.getRightdir());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Actions returns RightRotatePoint
+	 *     RotateMovementAction returns RightRotatePoint
+	 *
+	 * Constraint:
+	 *     (rightdir=FBEnum degrees=INT)
+	 */
+	protected void sequence_RightRotatePoint_RotateMovementAction(ISerializationContext context, RightRotatePoint semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.RIGHT_ROTATE_POINT__RIGHTDIR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.RIGHT_ROTATE_POINT__RIGHTDIR));
+			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.ROTATE_POINTS__DEGREES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.ROTATE_POINTS__DEGREES));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRightRotatePointAccess().getRightdirFBEnumEnumRuleCall_2_0(), semanticObject.getRightdir());
+		feeder.accept(grammarAccess.getRotateMovementActionAccess().getDegreesINTTerminalRuleCall_4_0(), semanticObject.getDegrees());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     RobotBehavior returns RobotBehavior
 	 *
 	 * Constraint:
@@ -281,34 +467,6 @@ public class DSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_RobotBehavior(ISerializationContext context, RobotBehavior semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Actions returns RotateMovementAction
-	 *     RotateMovementAction returns RotateMovementAction
-	 *
-	 * Constraint:
-	 *     (rotateleft=INT leftdir=RotateEnum rotateright=INT rightdir=RotateEnum)
-	 */
-	protected void sequence_RotateMovementAction(ISerializationContext context, RotateMovementAction semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.ROTATE_MOVEMENT_ACTION__ROTATELEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.ROTATE_MOVEMENT_ACTION__ROTATELEFT));
-			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.ROTATE_MOVEMENT_ACTION__LEFTDIR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.ROTATE_MOVEMENT_ACTION__LEFTDIR));
-			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.ROTATE_MOVEMENT_ACTION__ROTATERIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.ROTATE_MOVEMENT_ACTION__ROTATERIGHT));
-			if (transientValues.isValueTransient(semanticObject, DSLPackage.Literals.ROTATE_MOVEMENT_ACTION__RIGHTDIR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.ROTATE_MOVEMENT_ACTION__RIGHTDIR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRotateMovementActionAccess().getRotateleftINTTerminalRuleCall_1_0(), semanticObject.getRotateleft());
-		feeder.accept(grammarAccess.getRotateMovementActionAccess().getLeftdirRotateEnumEnumRuleCall_2_0(), semanticObject.getLeftdir());
-		feeder.accept(grammarAccess.getRotateMovementActionAccess().getRotaterightINTTerminalRuleCall_3_0(), semanticObject.getRotateright());
-		feeder.accept(grammarAccess.getRotateMovementActionAccess().getRightdirRotateEnumEnumRuleCall_4_0(), semanticObject.getRightdir());
-		feeder.finish();
 	}
 	
 	
@@ -331,7 +489,7 @@ public class DSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DSLPackage.Literals.TOUCH_LITERAL__TOUCH));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTouchLiteralAccess().getTouchTouchEnumEnumRuleCall_1_0(), semanticObject.getTouch());
+		feeder.accept(grammarAccess.getTouchLiteralAccess().getTouchTouchEnumEnumRuleCall_0_0(), semanticObject.getTouch());
 		feeder.finish();
 	}
 	

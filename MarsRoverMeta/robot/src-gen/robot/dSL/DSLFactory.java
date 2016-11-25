@@ -87,6 +87,42 @@ public interface DSLFactory extends EFactory
   RotateMovementAction createRotateMovementAction();
 
   /**
+   * Returns a new object of class '<em>Rotate Points</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Rotate Points</em>'.
+   * @generated
+   */
+  RotatePoints createRotatePoints();
+
+  /**
+   * Returns a new object of class '<em>Left Rotate Point</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Left Rotate Point</em>'.
+   * @generated
+   */
+  LeftRotatePoint createLeftRotatePoint();
+
+  /**
+   * Returns a new object of class '<em>Right Rotate Point</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Right Rotate Point</em>'.
+   * @generated
+   */
+  RightRotatePoint createRightRotatePoint();
+
+  /**
+   * Returns a new object of class '<em>Middle Rotate Point</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Middle Rotate Point</em>'.
+   * @generated
+   */
+  MiddleRotatePoint createMiddleRotatePoint();
+
+  /**
    * Returns a new object of class '<em>Movement Action</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -130,6 +166,15 @@ public interface DSLFactory extends EFactory
    * @generated
    */
   DistanceLiteral createDistanceLiteral();
+
+  /**
+   * Returns a new object of class '<em>Edge Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Edge Literal</em>'.
+   * @generated
+   */
+  EdgeLiteral createEdgeLiteral();
 
   /**
    * Returns a new object of class '<em>AN Dexpression</em>'.

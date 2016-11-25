@@ -6,14 +6,23 @@
     copyrightFields="false" runtimeVersion="2.12">
   <genPackages prefix="DSL" basePackage="robot" disposableProviderFactory="true" fileExtensions="rdsl"
       ecorePackage="DSL.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DSL.ecore#//RotateEnum">
-      <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//RotateEnum/FORWARD"/>
-      <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//RotateEnum/BACKWARD"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DSL.ecore#//LREnum">
+      <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//LREnum/LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//LREnum/RIGHT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DSL.ecore#//FBEnum">
+      <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//FBEnum/FORWARD"/>
+      <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//FBEnum/BACKWARD"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="DSL.ecore#//ActionEnum">
       <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//ActionEnum/FORWARD"/>
       <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//ActionEnum/BACKWARD"/>
       <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//ActionEnum/STOP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DSL.ecore#//EdgeEnum">
+      <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//EdgeEnum/FRONTLEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//EdgeEnum/FRONTRIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//EdgeEnum/BACK"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="DSL.ecore#//TouchEnum">
       <genEnumLiterals ecoreEnumLiteral="DSL.ecore#//TouchEnum/LEFT"/>
@@ -45,11 +54,18 @@
     <genClasses ecoreClass="DSL.ecore#//RightMovementAction">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//RightMovementAction/rightmove"/>
     </genClasses>
-    <genClasses ecoreClass="DSL.ecore#//RotateMovementAction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//RotateMovementAction/rotateleft"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//RotateMovementAction/leftdir"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//RotateMovementAction/rotateright"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//RotateMovementAction/rightdir"/>
+    <genClasses ecoreClass="DSL.ecore#//RotateMovementAction"/>
+    <genClasses ecoreClass="DSL.ecore#//RotatePoints">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//RotatePoints/degrees"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//LeftRotatePoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//LeftRotatePoint/leftdir"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//RightRotatePoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//RightRotatePoint/rightdir"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//MiddleRotatePoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//MiddleRotatePoint/middledir"/>
     </genClasses>
     <genClasses ecoreClass="DSL.ecore#//MovementAction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//MovementAction/actionenum"/>
@@ -65,6 +81,9 @@
     </genClasses>
     <genClasses ecoreClass="DSL.ecore#//DistanceLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//DistanceLiteral/distance"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//EdgeLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//EdgeLiteral/edge"/>
     </genClasses>
     <genClasses ecoreClass="DSL.ecore#//ANDexpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//ANDexpression/left"/>

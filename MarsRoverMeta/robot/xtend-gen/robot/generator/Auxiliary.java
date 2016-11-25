@@ -1,6 +1,5 @@
 package robot.generator;
 
-import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -21,7 +20,6 @@ import robot.dSL.MovementAction;
 import robot.dSL.ORexpression;
 import robot.dSL.RightMovementAction;
 import robot.dSL.RobotBehavior;
-import robot.dSL.RotateEnum;
 import robot.dSL.RotateMovementAction;
 import robot.dSL.TouchEnum;
 import robot.dSL.TouchLiteral;
@@ -178,39 +176,21 @@ public class Auxiliary {
   }
   
   protected static String _action2Text(final RotateMovementAction a) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("m.lm.rotate(");
-    int _xifexpression = (int) 0;
-    RotateEnum _leftdir = a.getLeftdir();
-    boolean _equals = Objects.equal(_leftdir, RotateEnum.FORWARD);
-    if (_equals) {
-      _xifexpression = a.getRotateleft();
-    } else {
-      int _rotateleft = a.getRotateleft();
-      _xifexpression = (-_rotateleft);
-    }
-    _builder.append(_xifexpression, "");
-    _builder.append(", true);");
-    _builder.newLineIfNotEmpty();
-    _builder.append("m.rm.rotate(");
-    int _xifexpression_1 = (int) 0;
-    RotateEnum _rightdir = a.getRightdir();
-    boolean _equals_1 = Objects.equal(_rightdir, RotateEnum.FORWARD);
-    if (_equals_1) {
-      _xifexpression_1 = a.getRotateright();
-    } else {
-      int _rotateright = a.getRotateright();
-      _xifexpression_1 = (-_rotateright);
-    }
-    _builder.append(_xifexpression_1, "");
-    _builder.append(",true);");
-    _builder.newLineIfNotEmpty();
-    _builder.append("while(m.rm.isMoving() && !suppressed){");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("Thread.yield();");
-    _builder.newLine();
-    return _builder.toString();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field leftdir is undefined for the type RotateMovementAction"
+      + "\nThe method or field RotateEnum is undefined"
+      + "\nThe method or field rotateleft is undefined for the type RotateMovementAction"
+      + "\nThe method or field rotateleft is undefined for the type RotateMovementAction"
+      + "\nThe method or field rightdir is undefined for the type RotateMovementAction"
+      + "\nThe method or field RotateEnum is undefined"
+      + "\nThe method or field rotateright is undefined for the type RotateMovementAction"
+      + "\nThe method or field rotateright is undefined for the type RotateMovementAction"
+      + "\n== cannot be resolved"
+      + "\nFORWARD cannot be resolved"
+      + "\n- cannot be resolved"
+      + "\n== cannot be resolved"
+      + "\nFORWARD cannot be resolved"
+      + "\n- cannot be resolved");
   }
   
   public static HashSet<String> getSensors(final Expression b) {
