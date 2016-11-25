@@ -24,10 +24,31 @@ RightMovementAction:
 	"rightMotor" rightmove = MovementAction;
 
 RotateMovementAction:
-	"rotate" rotateleft = INT leftdir=RotateEnum rotateright = INT rightdir=RotateEnum
+	"rotate" "around" RotatePoints 'for' degrees=INT 'degrees'
 ;
 
-enum RotateEnum:
+RotatePoints:
+	LeftRotatePoint | RightRotatePoint | MiddleRotatePoint
+;
+
+LeftRotatePoint:
+	"left" "wheel" leftdir=FBEnum 
+;
+
+RightRotatePoint:
+	"right" "wheel" rightdir=FBEnum
+;
+
+MiddleRotatePoint:
+	'middle' 'to' 'the' middledir=LREnum
+;
+
+enum LREnum:
+	LEFT = 'left' |
+	RIGHT = 'right'
+;
+
+enum FBEnum:
 	FORWARD = 'forward' |
 	BACKWARD = 'backward'
 ;
@@ -52,7 +73,7 @@ Expression2 returns Expression:
 ;
 
 Expression3 returns Expression:
-	ExpressionBracket | TouchLiteral | ColorLiteral | DistanceLiteral
+	ExpressionBracket | TouchLiteral | ColorLiteral | DistanceLiteral | EdgeLiteral
 ;
 
 ExpressionBracket:
@@ -60,19 +81,29 @@ ExpressionBracket:
 ;
 
 TouchLiteral:
-	"touch:" touch = TouchEnum
+	touch = TouchEnum 'hits'
 ;
 
 ColorLiteral:
-	"color:"  color = ColorEnum
+	"colorFront" "sees" "color"  color = ColorEnum
 ;
 
 DistanceLiteral:
-	"sonar:" distance=INT
+	"object" "at" distance=INT "cm"
+;
+
+EdgeLiteral:
+	"edge" "at" edge=EdgeEnum
+;
+
+enum EdgeEnum:
+	FRONTLEFT = "frontLeft" |
+	FRONTRIGHT = "frontRight" |
+	BACK = "back"
 ;
 
 enum TouchEnum:
-	LEFT = 'touchLeft' | RIGHT = 'touchRight'
+	LEFT = 'touchFrontLeft' | RIGHT = 'touchFrontRight'
 ;
 
 enum ColorEnum:
