@@ -24,9 +24,21 @@ RightMovementAction:
 	"rightMotor" rightmove = MovementAction;
 
 RotateMovementAction:
-	"rotate" "around" RotatePoints 'for' degrees=INT 'degrees'
+	"rotate" "around" RotatePoints 'for' degrees=INT 'degrees'// ComparedTo 
+;
+/* 
+ComparedTo:
+	Now | Begin
 ;
 
+Now:
+'for' degrees=INT 'degrees'
+;
+
+Begin:
+	'until' 'at' degrees=INT 'degrees'
+;
+*/
 RotatePoints:
 	LeftRotatePoint | RightRotatePoint | MiddleRotatePoint
 ;

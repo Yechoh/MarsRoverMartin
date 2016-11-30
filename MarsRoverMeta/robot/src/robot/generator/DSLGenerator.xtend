@@ -24,13 +24,16 @@ class DSLGenerator extends AbstractGenerator {
 		
 		val root = resource.allContents.head as RobotBehavior;
  		if (root != null) {
- 			fsa.generateFile("Main.java", MainGenerator.toText(root));
- 			fsa.generateFile("Model.java", ModelGenerator.toText(root));
- 			
+ 			fsa.generateFile("/Master/Main.java", MainGenerator.toText(root));
+ 			fsa.generateFile("/Master/Model.java", ModelGenerator.toText(root));
+ 			fsa.generateFile("/Slave/Main.java", SlaveGenerator.MainToText(root));
+ 			fsa.generateFile("/Slave/Model.java", SlaveGenerator.ModelToText(root));
+ 			fsa.generateFile("/Slave/GetMessage.java", SlaveGenerator.GetMesageToText(root));
+ 			fsa.generateFile("/Slave/ReadSensors.java", SlaveGenerator.ReadSensorsToText(root));
  			var List<Behaviors> b = new ArrayList<Behaviors>() 
  			b = Auxiliary.getBehaviors(root);
  			for(Behaviors i : b)
- 				fsa.generateFile(Auxiliary.toClass(i.name) + ".java", BehaviorGenerator.toText(i));
+ 				fsa.generateFile("/Master/"+Auxiliary.toClass(i.name) + ".java", BehaviorGenerator.toText(i));
  			}
 	}
 }

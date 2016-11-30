@@ -176,21 +176,7 @@ public class Auxiliary {
   }
   
   protected static String _action2Text(final RotateMovementAction a) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field leftdir is undefined for the type RotateMovementAction"
-      + "\nThe method or field RotateEnum is undefined"
-      + "\nThe method or field rotateleft is undefined for the type RotateMovementAction"
-      + "\nThe method or field rotateleft is undefined for the type RotateMovementAction"
-      + "\nThe method or field rightdir is undefined for the type RotateMovementAction"
-      + "\nThe method or field RotateEnum is undefined"
-      + "\nThe method or field rotateright is undefined for the type RotateMovementAction"
-      + "\nThe method or field rotateright is undefined for the type RotateMovementAction"
-      + "\n== cannot be resolved"
-      + "\nFORWARD cannot be resolved"
-      + "\n- cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nFORWARD cannot be resolved"
-      + "\n- cannot be resolved");
+    return "";
   }
   
   public static HashSet<String> getSensors(final Expression b) {

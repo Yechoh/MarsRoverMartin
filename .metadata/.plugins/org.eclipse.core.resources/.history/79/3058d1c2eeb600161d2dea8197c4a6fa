@@ -1,0 +1,10 @@
+package assignment2;
+
+public class ModelSlave {
+	public boolean end;
+	public boolean doneturning;
+	
+	
+	public ModelSlave(){
+	}
+}

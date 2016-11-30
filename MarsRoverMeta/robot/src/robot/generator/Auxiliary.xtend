@@ -107,12 +107,12 @@ class Auxiliary {
 	}
 	
 	def static dispatch String action2Text(RotateMovementAction a){
-		return '''
+		return "" /*'''
 		m.lm.rotate(«if(a.leftdir==RotateEnum.FORWARD){a.rotateleft}else{-a.rotateleft}», true);
 		m.rm.rotate(«if(a.rightdir==RotateEnum.FORWARD){a.rotateright}else{-a.rotateright}»,true);
 		while(m.rm.isMoving() && !suppressed){
 			Thread.yield();
-		'''
+		'''*/
 	}
 	
 }

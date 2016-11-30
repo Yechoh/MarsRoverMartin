@@ -1,0 +1,23 @@
+package robot.generator
+
+import robot.dSL.RobotBehavior
+
+class SlaveGenerator {
+	
+	def static MainToText(RobotBehavior behavior) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def static ModelToText(robot.dSL.RobotBehavior behavior) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def static GetMesageToText(robot.dSL.RobotBehavior behavior) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def static ReadSensorsToText(robot.dSL.RobotBehavior behavior) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}

@@ -1,0 +1,57 @@
+package assignment2;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+import lejos.hardware.Brick;
+import lejos.hardware.BrickFinder;
+import lejos.hardware.lcd.LCD;
+import lejos.hardware.port.SensorPort;
+import lejos.hardware.sensor.EV3TouchSensor;
+import lejos.hardware.sensor.SensorMode;
+import lejos.remote.nxt.BTConnector;
+import lejos.remote.nxt.NXTConnection;
+
+public class Slave {
+
+	public static void main(String[] args) {
+		BTConnector connector = new BTConnector();
+	 	Brick brick = BrickFinder.getDefault();
+	 	String name = brick.getName();
+	 	LCD.drawString(name, 0, 3);
+	 	NXTConnection connection = connector.waitForConnection(60000,NXTConnection.RAW);
+	 	PrintWriter writer = new PrintWriter(connection.openOutputStream());
+ 		DataInputStream reader = connection.openDataInputStream();
+ 		Byte b=0;
+ 		EV3TouchSensor touchL = new EV3TouchSensor(SensorPort.S1);
+		EV3TouchSensor touchR = new EV3TouchSensor(SensorPort.S4);
+		SensorMode touchLeft = touchL.getTouchMode();
+		SensorMode touchRight = touchR.getTouchMode();
+		float[] touchLeftSamples = new float[touchLeft.sampleSize()];
+		float[] touchRightSamples = new float[touchRight.sampleSize()];
+ 		boolean bll = false;
+		while(!bll){
+			try{
+				bll = ((b=reader.readByte())!='e');
+			}catch (IOException ex){
+	 			LCD.drawString("error:", 0, 3);
+	 			LCD.drawString(ex.getMessage(),0,4);
+	 		}
+			touchLeft.fetchSample(touchLeftSamples, 0);
+			if(touchLeftSamples[0] > 0){
+				writer.print('l');
+				writer.flush();
+			}
+			touchRight.fetchSample(touchRightSamples, 0);
+			if(touchLeftSamples[0] > 0){
+				writer.print('r');
+				writer.flush();
+			}
+			
+		}
+
+	}
+
+}

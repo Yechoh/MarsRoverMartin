@@ -1,0 +1,11 @@
+package assignment2;
+
+public class ReadSensors {
+	
+	public ModelSlave m;
+	
+	public ReadSensors(ModelSlave m){
+		this.m=m;
+		while()
+	}
+}
